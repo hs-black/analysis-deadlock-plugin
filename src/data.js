@@ -1,6 +1,6 @@
 (function(g){
 var d={
-  "version": "0.1.0",
+  "version": "0.1.1",
   "kind": "mechanics-heuristic",
   "reviewedPatch": null,
   "catalogSource": "https://github.com/0xThiagoAmaral/deadlock-open-assets/blob/main/assets/game/heroes.json",
@@ -23,13 +23,28 @@ var d={
       "threats": [
         "healing",
         "dive"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "apollo",
       "name": "Apollo",
-      "traits": null,
-      "threats": []
+      "traits": {
+        "dps": 1,
+        "burst": 2,
+        "engage": 1,
+        "control": 1,
+        "frontline": 0,
+        "clear": 1,
+        "heal": 0,
+        "poke": 0,
+        "mobility": 2
+      },
+      "threats": [
+        "dive",
+        "burst"
+      ],
+      "gunCore": false
     },
     {
       "id": "bebop",
@@ -48,37 +63,69 @@ var d={
       "threats": [
         "channel",
         "burst"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "billy",
       "name": "Billy",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "calico",
       "name": "Calico",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "celeste",
       "name": "Celeste",
-      "traits": null,
-      "threats": []
+      "traits": {
+        "dps": 1,
+        "burst": 2,
+        "engage": 0,
+        "control": 1,
+        "frontline": 0,
+        "clear": 2,
+        "heal": 1,
+        "poke": 2,
+        "mobility": 1
+      },
+      "threats": [
+        "range",
+        "burst"
+      ],
+      "gunCore": false
     },
     {
       "id": "doorman",
       "name": "The Doorman",
-      "traits": null,
-      "threats": []
+      "traits": {
+        "dps": 1,
+        "burst": 1,
+        "engage": 1,
+        "control": 2,
+        "frontline": 0,
+        "clear": 1,
+        "heal": 0,
+        "poke": 1,
+        "mobility": 2
+      },
+      "threats": [
+        "control",
+        "mobility"
+      ],
+      "gunCore": false
     },
     {
       "id": "drifter",
       "name": "Drifter",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "dynamo",
@@ -97,13 +144,27 @@ var d={
       "threats": [
         "channel",
         "healing"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "graves",
       "name": "Graves",
-      "traits": null,
-      "threats": []
+      "traits": {
+        "dps": 1,
+        "burst": 1,
+        "engage": 0,
+        "control": 2,
+        "frontline": 0,
+        "clear": 2,
+        "heal": 0,
+        "poke": 1,
+        "mobility": 0
+      },
+      "threats": [
+        "control"
+      ],
+      "gunCore": false
     },
     {
       "id": "grey_talon",
@@ -122,7 +183,8 @@ var d={
       "threats": [
         "range",
         "burst"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "haze",
@@ -141,13 +203,15 @@ var d={
       "threats": [
         "gun",
         "channel"
-      ]
+      ],
+      "gunCore": true
     },
     {
       "id": "holliday",
       "name": "Holliday",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "infernus",
@@ -166,7 +230,8 @@ var d={
       "threats": [
         "dot",
         "dive"
-      ]
+      ],
+      "gunCore": true
     },
     {
       "id": "ivy",
@@ -184,7 +249,8 @@ var d={
       },
       "threats": [
         "mobility"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "kelvin",
@@ -203,7 +269,8 @@ var d={
       "threats": [
         "healing",
         "control"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "lady_geist",
@@ -222,7 +289,8 @@ var d={
       "threats": [
         "burst",
         "healing"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "lash",
@@ -241,7 +309,8 @@ var d={
       "threats": [
         "dive",
         "control"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "mcginnis",
@@ -260,13 +329,15 @@ var d={
       "threats": [
         "gun",
         "healing"
-      ]
+      ],
+      "gunCore": true
     },
     {
       "id": "mina",
       "name": "Mina",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "mirage",
@@ -285,7 +356,8 @@ var d={
       "threats": [
         "gun",
         "mobility"
-      ]
+      ],
+      "gunCore": true
     },
     {
       "id": "mo_and_krill",
@@ -305,13 +377,27 @@ var d={
         "healing",
         "channel",
         "dive"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "paige",
       "name": "Paige",
-      "traits": null,
-      "threats": []
+      "traits": {
+        "dps": 0,
+        "burst": 1,
+        "engage": 1,
+        "control": 2,
+        "frontline": 1,
+        "clear": 1,
+        "heal": 2,
+        "poke": 1,
+        "mobility": 1
+      },
+      "threats": [
+        "control"
+      ],
+      "gunCore": false
     },
     {
       "id": "paradox",
@@ -330,7 +416,8 @@ var d={
       "threats": [
         "burst",
         "control"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "pocket",
@@ -349,13 +436,15 @@ var d={
       "threats": [
         "dot",
         "dive"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "rem",
       "name": "Rem",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "seven",
@@ -373,7 +462,8 @@ var d={
       },
       "threats": [
         "channel"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "shiv",
@@ -393,31 +483,36 @@ var d={
         "healing",
         "dive",
         "dot"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "silver",
       "name": "Silver",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "sinclair",
       "name": "Sinclair",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "venator",
       "name": "Venator",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "victor",
       "name": "Victor",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "vindicta",
@@ -436,7 +531,8 @@ var d={
       "threats": [
         "range",
         "gun"
-      ]
+      ],
+      "gunCore": true
     },
     {
       "id": "viscous",
@@ -455,13 +551,15 @@ var d={
       "threats": [
         "healing",
         "control"
-      ]
+      ],
+      "gunCore": false
     },
     {
       "id": "vyper",
       "name": "Vyper",
       "traits": null,
-      "threats": []
+      "threats": [],
+      "gunCore": null
     },
     {
       "id": "warden",
@@ -480,7 +578,8 @@ var d={
       "threats": [
         "gun",
         "healing"
-      ]
+      ],
+      "gunCore": true
     },
     {
       "id": "wraith",
@@ -499,7 +598,8 @@ var d={
       "threats": [
         "gun",
         "control"
-      ]
+      ],
+      "gunCore": true
     },
     {
       "id": "yamato",
@@ -518,10 +618,12 @@ var d={
       "threats": [
         "dive",
         "burst"
-      ]
+      ],
+      "gunCore": false
     }
   ],
   "roles": {
+    "gun": "枪位（持续武器输出）",
     "dps": "持续输出",
     "burst": "爆发",
     "engage": "先手",

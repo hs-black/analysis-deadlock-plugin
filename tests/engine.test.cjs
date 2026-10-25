@@ -21,8 +21,8 @@ test('unknown nonempty hero labels can freeze but cannot masquerade as covered d
 });
 test('empty pool returns no swap recommendations',()=>{const p=profile();p.unlocked=[];a.deepEqual(create(data,p).analyze(match()).recommendations,[]);});
 test('pool, exclusion, occupancy and availability are all enforced',()=>{
- const p=profile();p.unlocked=['paradox','viscous','pocket','abrams','wraith','apollo'];p.excluded=['viscous'];
- const e=create(data,p),r=e.analyze(match({available:['paradox','viscous','abrams','wraith','apollo']}));
+ const p=profile();p.unlocked=['paradox','viscous','pocket','abrams','wraith','billy'];p.excluded=['viscous'];
+ const e=create(data,p),r=e.analyze(match({available:['paradox','viscous','abrams','wraith','billy']}));
  a.deepEqual(r.recommendations.map(x=>x.id),['paradox']);
  a.deepEqual(e.analyze(match({available:[]})).recommendations,[]);
 });
@@ -48,5 +48,42 @@ test('aliases and display names canonicalize; prototype keys remain unknown',()=
  a.equal(e.complete(['雾','Haze','Seven','Wraith','Infernus','McGinnis']),false);
 });
 test('unsupported current hero never produces speculative recommendations',()=>{
- const r=create(data,profile()).analyze(match({friendly:['apollo',...friendly.slice(1)],own:'apollo'}));a.deepEqual(r.recommendations,[]);a.deepEqual(r.items,[]);
+ const r=create(data,profile()).analyze(match({friendly:['billy',...friendly.slice(1)],own:'billy'}));a.deepEqual(r.recommendations,[]);a.deepEqual(r.items,[]);
+});
+const screenshot=['celeste','paige','graves','viscous','apollo','doorman'];
+const screenshotMatch=(extra={})=>match({friendly:screenshot,own:'celeste',mate:'paige',foes:['abrams','mo_and_krill'],...extra});
+test('reported six-hero roster detects missing weapon carry and recommends eligible gun heroes',()=>{
+ const e=create(data,{unlocked:['haze','wraith','vindicta']}),r=e.analyze(screenshotMatch());
+ a.equal(r.composition.coverage,6);a.ok(r.composition.gaps.includes('gun'));a.equal(r.decision,'recommend_swap');a.equal(r.keep,false);
+ a.deepEqual(new Set(r.recommendations.map(x=>x.id)),new Set(['haze','wraith','vindicta']));
+ a.ok(r.recommendations.every(x=>x.reasons.includes('补足枪位（持续武器输出）')));
+});
+test('missing data, empty pool and unusable candidates are never a keep recommendation',()=>{
+ const cases=[
+  [{unlocked:['haze']},screenshotMatch({friendly:['billy',...screenshot.slice(1)],own:'billy'}),'insufficient_data'],
+  [{unlocked:['haze']},screenshotMatch({enemy:['billy',...enemy.slice(1)]}),'insufficient_data'],
+  [{unlocked:[]},screenshotMatch(),'needs_pool'],
+  [{unlocked:['haze']},screenshotMatch({available:[]}),'no_eligible_candidates'],
+  [{unlocked:['celeste','paige','abrams']},screenshotMatch(),'no_eligible_candidates'],
+  [{unlocked:['billy']},screenshotMatch(),'no_supported_candidates'],
+  [{unlocked:['haze']},screenshotMatch({own:null}),'needs_hero']
+ ];
+ for(const [p,m,status] of cases){const r=create(data,p).analyze(m);a.equal(r.decision,status);a.equal(r.keep,null);a.deepEqual(r.recommendations,[]);a.ok(r.decisionMessage);}
+});
+test('gun role follows hero identity and can reflect actual builds without changing other traits',()=>{
+ const e=create(data,{unlocked:['haze']}),base=e.analyze(screenshotMatch());
+ const r=e.analyze(screenshotMatch({gunRoles:{graves:true}}));
+ a.deepEqual(r.composition.gunHeroes,['graves']);a.ok(!r.composition.gaps.includes('gun'));
+ a.equal(r.composition.totals.dps,base.composition.totals.dps);
+ a.ok(r.recommendations.every(x=>!x.reasons.includes('补足枪位（持续武器输出）')));
+ const replaced=e.analyze(screenshotMatch({friendly:['haze',...screenshot.slice(1)],own:'haze',gunRoles:{celeste:true,haze:false}}));
+ a.ok(replaced.composition.gaps.includes('gun'));a.deepEqual(replaced.composition.gunHeroes,[]);
+});
+test('unknown role never counts as evidence of zero gun carries',()=>{
+ const r=create(data,{unlocked:['haze']}).analyze(screenshotMatch({friendly:['billy',...screenshot.slice(1)]}));
+ a.deepEqual(r.composition.gunUnknown,['billy']);a.ok(!r.composition.gaps.includes('gun'));a.equal(r.keep,null);
+});
+test('keep requires a completed comparison with an eligible supported alternative',()=>{
+ const r=create(data,{unlocked:['celeste']}).analyze(screenshotMatch({friendly:['wraith',...screenshot.slice(1)],own:'wraith'}));
+ a.equal(r.decision,'keep');a.equal(r.keep,true);a.deepEqual(r.recommendations,[]);
 });

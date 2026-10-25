@@ -4,6 +4,11 @@ d=json.loads((root/'catalog.json').read_text())
 # Authored baseline mechanics, NOT learned scores or current-patch performance.
 # dps burst engage control frontline clear heal poke mobility; ordinal 0..2.
 rows={
+'apollo':([1,2,1,1,0,1,0,0,2],['dive','burst']),
+'celeste':([1,2,0,1,0,2,1,2,1],['range','burst']),
+'graves':([1,1,0,2,0,2,0,1,0],['control']),
+'paige':([0,1,1,2,1,1,2,1,1],['control']),
+'doorman':([1,1,1,2,0,1,0,1,2],['control','mobility']),
 'abrams':([1,1,2,2,2,1,2,0,1],['healing','dive']),
 'bebop':([1,2,2,2,1,1,0,1,0],['channel','burst']),
 'dynamo':([0,1,2,2,1,1,2,0,1],['channel','healing']),
@@ -27,11 +32,12 @@ rows={
 'wraith':([2,1,1,2,0,1,0,1,2],['gun','control']),
 'yamato':([1,2,1,0,1,2,1,1,2],['dive','burst'])}
 keys='dps burst engage control frontline clear heal poke mobility'.split()
+gun_cores={'haze','wraith','vindicta','infernus','mcginnis','mirage','warden'}
 for h in d['heroes']:
  if h['id'] in rows:
-  values,threats=rows[h['id']];h.update(traits=dict(zip(keys,values)),threats=threats)
- else:h.update(traits=None,threats=[])
-d['roles']={'dps':'持续输出','burst':'爆发','engage':'先手','control':'控制','frontline':'前排','clear':'清线','heal':'续航','poke':'消耗','mobility':'机动'}
+  values,threats=rows[h['id']];h.update(traits=dict(zip(keys,values)),threats=threats,gunCore=h['id'] in gun_cores)
+ else:h.update(traits=None,threats=[],gunCore=None)
+d['roles']={'gun':'枪位（持续武器输出）','dps':'持续输出','burst':'爆发','engage':'先手','control':'控制','frontline':'前排','clear':'清线','heal':'续航','poke':'消耗','mobility':'机动'}
 d['minimums']={'dps':5,'engage':3,'control':5,'frontline':3,'clear':5}
 d['items']=[
  {'id':'healbane','name':'Healbane','threat':'healing','reason':'用重伤削弱回复；先确认自己的伤害能稳定触发。','stage':'针对回复','caution':'具体触发条件与数值以当前商店说明为准'},

@@ -35,7 +35,7 @@ function stage(qol,out,profilePath){
   fs.writeFileSync(path.join(target,'profile.js'),'(function(g){g.RankAdvisorProfile='+JSON.stringify(profile)+';})(globalThis);\n');
   fs.mkdirSync(path.join(out,'panorama/styles'),{recursive:true});fs.copyFileSync(path.join(project,'src/hud.css'),path.join(out,'panorama/styles/rank_advisor.css'));
   fs.writeFileSync(path.join(out,'panorama/layout/hud.xml'),patched);
-  fs.writeFileSync(path.join(out,'RANK_ADVISOR_BUILD.json'),JSON.stringify({version:'0.1.0',source:qol,profileLabel:profile.label,compiled:false},null,2));
+  fs.writeFileSync(path.join(out,'RANK_ADVISOR_BUILD.json'),JSON.stringify({version:require('../package.json').version,source:qol,profileLabel:profile.label,compiled:false},null,2));
  }catch(e){throw Error('Staging failed; partial output kept at '+out+': '+e.message);}
  return out;
 }

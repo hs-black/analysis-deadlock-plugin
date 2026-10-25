@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "kind": "mechanics-heuristic",
   "reviewedPatch": null,
   "catalogSource": "https://github.com/0xThiagoAmaral/deadlock-open-assets/blob/main/assets/game/heroes.json",

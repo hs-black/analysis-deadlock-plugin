@@ -1,14 +1,20 @@
-Rank Advisor 0.1.0 verification
+Rank Advisor 0.1.1 verification
 
 Passed:
-- 14 Node.js tests: snapshot freezing/reset, eligibility filtering, incomplete data,
+- 20 Node.js tests: snapshot freezing/reset, eligibility filtering, incomplete data,
   lane selection validity, item target mapping, Panorama-shaped mock lifecycle,
   non-destructive staging and invalid-profile rejection.
-- Real downloaded QoL HUD XML: source integration succeeded; new script includes
+- Reported Celeste/Paige/Graves/Viscous/Apollo/Doorman roster: all six covered,
+  missing gun role detected, eligible gun alternatives recommended; missing data,
+  empty pool and unusable candidates are not mistaken for a keep decision.
+- Hero-specific gun-build overrides and next-match reset in the mocked HUD.
+- Prior 0.1.0 integration check with real downloaded QoL HUD XML: source integration succeeded; new script includes
   precede ql_app startup, and the resulting XML parses.
 - Chromium development preview: loads without JavaScript exceptions, hero-pool
   edit works, changing enemy selection does not overwrite the frozen snapshot,
   resetting the match permits a new snapshot, no horizontal overflow at 1400px.
+  0.1.1 regression: screenshot roster covers 6/6, empty-pool explanation, gun-carry
+  suggestions, and manual build override all render correctly.
 
 Not verified:
 - Windows PowerShell wrapper execution and CSDK resource compilation.

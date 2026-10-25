@@ -8,12 +8,13 @@ class Panel{
  RemoveAndDeleteChildren(){this.children.forEach(c=>c.DeleteAsync());this.children=[];}
  DeleteAsync(){this.valid=false;this.RemoveAndDeleteChildren();if(this.parent)this.parent.children=this.parent.children.filter(c=>c!==this);}
 }
-function harness(){
+function harness(unlocked=[]){
  const root=new Panel('CitadelHud',null,'Hud'),top=new Panel('CitadelHudTopBar',root,'TopBar'),queue=[],logs=[];let manifest;
  const a=['Haze','Wraith','Vindicta','Seven','Infernus','McGinnis'],b=['Abrams','Mo & Krill','Kelvin','Lash','Bebop','Dynamo'];
  const rows=[];[a,b].forEach((team,n)=>{const t=new Panel('CitadelHudTopBarTeam',top,n?'TeamEnemy':'TeamFriendly'),container=new Panel('Panel',t,'PlayersContainer');rows[n]=team.map(id=>{const p=new Panel('CitadelHudTopBarPlayer',container,''),l=new Panel('Label',p,'');l.AddClass('HeroNameHidden');l.text=id;return l;});});
  const ctx=vm.createContext({QOL:{core:{FeatureRegistry:{register:m=>manifest=m}}},$:{GetContextPanel:()=>root,CreatePanel:(t,p,id)=>new Panel(t,p,id),Schedule:(s,f)=>queue.push(f),Msg:t=>logs.push(t),DispatchEvent:()=>{}}});
  for(const f of ['data','profile','engine','hud'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/'+f+'.js'),'utf8'),ctx);
+ ctx.RankAdvisorProfile.unlocked=unlocked;
  const inst=manifest.create();inst.onEnable();return {root,rows,queue,logs,inst,step:()=>queue.shift()?.(),texts:()=>{const walk=p=>[p.text,...p.children.flatMap(walk)];const box=root.FindChildTraverse('RankAdvisor');return box?walk(box).filter(Boolean).join('\n'):'';}};
 }
 test('HUD reads native-shape panels, locks enemy, updates allies, resets in hideout and cancels on disable',()=>{
@@ -22,4 +23,13 @@ test('HUD reads native-shape panels, locks enemy, updates allies, resets in hide
  h.rows[1][0].text='Shiv';h.rows[0][0].text='Pocket';h.step();assert.ok(h.texts().includes('Pocket'));assert.ok(h.texts().includes('Abrams'));assert.ok(!h.texts().includes('Shiv'));
  h.root.AddClass('InHideout');h.step();assert.ok(h.texts().includes('等待下一场'));h.root.classes.delete('InHideout');h.step();assert.ok(h.texts().includes('Shiv'));
  h.inst.onDisable();h.step();assert.equal(h.queue.length,0);assert.equal(h.root.FindChildTraverse('RankAdvisor'),null);assert.deepEqual(h.logs,[]);
+});
+
+test('HUD reports missing guns, shows swap reasons and resets manual gun roles',()=>{
+ const h=harness(['haze','wraith','vindicta']);
+ ['Celeste','Paige','Graves','Viscous','Apollo','The Doorman'].forEach((name,i)=>h.rows[0][i].text=name);h.step();
+ const click=text=>{const walk=p=>[p,...p.children.flatMap(walk)];const b=walk(h.root).find(p=>p.paneltype==='Button'&&p.children.some(c=>c.text===text));assert.ok(b,'button '+text);b.events.onactivate();h.step();};
+ click('Celeste');assert.ok(h.texts().includes('己方 6/6'));assert.ok(h.texts().includes('枪位：0 人'));assert.ok(h.texts().includes('补足枪位'));
+ click('Graves · 自动');assert.ok(h.texts().includes('枪位：1 人'));assert.ok(!h.texts().includes('补足枪位'));
+ click('下一局重置');assert.ok(h.texts().includes('枪位：0 人'));assert.deepEqual(h.logs,[]);h.inst.onDisable();
 });

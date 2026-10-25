@@ -1,1 +1,1 @@
-{"name":"deadlock-rank-advisor","version":"0.1.0","private":true,"description":"QoL-integrated Panorama roster advisor prototype","scripts":{"test":"node --test tests/*.test.cjs","preview":"node tools/preview.cjs","stage":"node tools/stage.cjs"},"engines":{"node":">=20"}}
+{"name":"deadlock-rank-advisor","version":"0.1.1","private":true,"description":"QoL-integrated Panorama roster advisor prototype","scripts":{"test":"node --test tests/*.test.cjs","preview":"node tools/preview.cjs","stage":"node tools/stage.cjs"},"engines":{"node":">=20"}}
