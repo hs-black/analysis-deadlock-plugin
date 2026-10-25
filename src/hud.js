@@ -74,13 +74,16 @@
             });
             var r=engine.analyze(input);clear(report);
             label(report,'阵容倾向','RAHeading');
-            label(report,'规则覆盖：己方 '+r.composition.coverage+'/6，敌方 '+r.enemyCoverage+'/6','RAMuted');
+            label(report,'手工规则覆盖：己方 '+r.composition.coverage+'/6，敌方 '+r.enemyCoverage+'/6','RAMuted');
             label(report,r.composition.missing.length?'部分英雄缺少规则，暂不判断整队短板。':r.composition.gaps.length?'偏少：'+r.composition.gaps.map(function(k){return g.RankAdvisorData.roles[k];}).join('、'):'当前规则未发现明显能力缺口。');
             label(report,'枪位：'+r.composition.gunHeroes.length+' 人'+(r.composition.gunUnknown.length?' · 部分职责未知':''));
             if(r.composition.missing.length)label(report,'缺少资料：'+r.composition.missing.map(engine.name).join('、'),'RAWarning');
-            label(report,'换英雄建议','RAHeading');
+            r.mechanicsNotes.forEach(function(x){label(report,x,'RAMuted');});
+            label(report,'机制补位建议','RAHeading');
             label(report,r.decisionMessage);
             r.recommendations.forEach(function(x){label(report,engine.name(x.id)+'：'+x.reasons.slice(0,2).join('；'));});
+            label(report,'历史胜率与 Counter','RAHeading');
+            r.statisticsLines.forEach(function(x){label(report,x,'RAMuted');});
             label(report,'对线分析','RAHeading');if(r.lane.ready)label(report,r.lane.label);r.lane.notes.slice(0,3).forEach(function(x){label(report,'• '+x);});
             label(report,'针对装备候选','RAHeading');
             if(!r.items.length)label(report,'选择自己的英雄后显示；不是固定购买顺序。');

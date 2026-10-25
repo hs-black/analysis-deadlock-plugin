@@ -1,10 +1,9 @@
-(function(g){
-var d={
-  "version": "0.1.1",
+(function(g){var d={
+  "version": "0.2.0",
   "kind": "mechanics-heuristic",
   "reviewedPatch": null,
-  "catalogSource": "https://github.com/0xThiagoAmaral/deadlock-open-assets/blob/main/assets/game/heroes.json",
-  "catalogDate": "2026-06-20",
+  "catalogSource": "https://api.deadlock-api.com/v1/assets/heroes",
+  "catalogDate": "2026-10-25",
   "heroes": [
     {
       "id": "abrams",
@@ -13,7 +12,7 @@ var d={
         "dps": 1,
         "burst": 1,
         "engage": 2,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 2,
         "clear": 1,
         "heal": 2,
@@ -24,7 +23,11 @@ var d={
         "healing",
         "dive"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 6,
+      "apiActive": true,
+      "className": "hero_atlas",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "apollo",
@@ -33,7 +36,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 1,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 0,
         "clear": 1,
         "heal": 0,
@@ -44,7 +47,11 @@ var d={
         "dive",
         "burst"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 77,
+      "apiActive": true,
+      "className": "hero_fencer",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "bebop",
@@ -53,7 +60,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 2,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 1,
         "clear": 1,
         "heal": 0,
@@ -64,21 +71,33 @@ var d={
         "channel",
         "burst"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 15,
+      "apiActive": true,
+      "className": "hero_bebop",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "billy",
       "name": "Billy",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 72,
+      "apiActive": true,
+      "className": "hero_punkgoat",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "calico",
       "name": "Calico",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 16,
+      "apiActive": true,
+      "className": "hero_nano",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "celeste",
@@ -87,7 +106,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 0,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 0,
         "clear": 2,
         "heal": 1,
@@ -98,7 +117,11 @@ var d={
         "range",
         "burst"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 81,
+      "apiActive": true,
+      "className": "hero_unicorn",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "doorman",
@@ -107,7 +130,7 @@ var d={
         "dps": 1,
         "burst": 1,
         "engage": 1,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 0,
         "clear": 1,
         "heal": 0,
@@ -115,17 +138,25 @@ var d={
         "mobility": 2
       },
       "threats": [
-        "control",
+        "hard_control",
         "mobility"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 69,
+      "apiActive": true,
+      "className": "hero_doorman",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "drifter",
       "name": "Drifter",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 64,
+      "apiActive": true,
+      "className": "hero_drifter",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "dynamo",
@@ -134,7 +165,7 @@ var d={
         "dps": 0,
         "burst": 1,
         "engage": 2,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 1,
         "clear": 1,
         "heal": 2,
@@ -145,7 +176,11 @@ var d={
         "channel",
         "healing"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 11,
+      "apiActive": true,
+      "className": "hero_dynamo",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "graves",
@@ -154,7 +189,7 @@ var d={
         "dps": 1,
         "burst": 1,
         "engage": 0,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 0,
         "clear": 2,
         "heal": 0,
@@ -162,9 +197,13 @@ var d={
         "mobility": 0
       },
       "threats": [
-        "control"
+        "hard_control"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 76,
+      "apiActive": true,
+      "className": "hero_necro",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "grey_talon",
@@ -173,7 +212,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 0,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 0,
         "clear": 1,
         "heal": 0,
@@ -184,7 +223,11 @@ var d={
         "range",
         "burst"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 17,
+      "apiActive": true,
+      "className": "hero_orion",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "haze",
@@ -193,7 +236,7 @@ var d={
         "dps": 2,
         "burst": 1,
         "engage": 0,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 0,
         "clear": 1,
         "heal": 0,
@@ -204,14 +247,22 @@ var d={
         "gun",
         "channel"
       ],
-      "gunCore": true
+      "gunCore": true,
+      "apiId": 13,
+      "apiActive": true,
+      "className": "hero_haze",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "holliday",
       "name": "Holliday",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 14,
+      "apiActive": true,
+      "className": "hero_astro",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "infernus",
@@ -220,7 +271,7 @@ var d={
         "dps": 2,
         "burst": 1,
         "engage": 1,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 1,
         "clear": 2,
         "heal": 0,
@@ -231,7 +282,11 @@ var d={
         "dot",
         "dive"
       ],
-      "gunCore": true
+      "gunCore": true,
+      "apiId": 1,
+      "apiActive": true,
+      "className": "hero_inferno",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "ivy",
@@ -240,7 +295,7 @@ var d={
         "dps": 1,
         "burst": 0,
         "engage": 1,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 1,
         "clear": 1,
         "heal": 1,
@@ -250,7 +305,11 @@ var d={
       "threats": [
         "mobility"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 20,
+      "apiActive": true,
+      "className": "hero_tengu",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "kelvin",
@@ -258,19 +317,28 @@ var d={
       "traits": {
         "dps": 1,
         "burst": 1,
-        "engage": 1,
-        "control": 2,
+        "engage": 0,
+        "hardControl": 0,
         "frontline": 1,
         "clear": 2,
         "heal": 2,
         "poke": 1,
-        "mobility": 1
+        "mobility": 1,
+        "softControl": 2
       },
       "threats": [
         "healing",
-        "control"
+        "slow",
+        "isolation"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "mechanicsNote": "Frost Grenade / Arctic Beam：减速，射线还降低射速；Frozen Shelter：封路隔离。不能据此推断眩晕、定身或打断。",
+      "mechanicsSource": "https://www.deadlock.io/en/heroes/kelvin",
+      "mechanicsCheckedAt": "2026-10-25",
+      "apiId": 12,
+      "apiActive": true,
+      "className": "hero_kelvin",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "lady_geist",
@@ -279,7 +347,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 0,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 1,
         "clear": 2,
         "heal": 1,
@@ -290,7 +358,11 @@ var d={
         "burst",
         "healing"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 4,
+      "apiActive": true,
+      "className": "hero_ghost",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "lash",
@@ -299,7 +371,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 2,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 1,
         "clear": 1,
         "heal": 1,
@@ -308,9 +380,13 @@ var d={
       },
       "threats": [
         "dive",
-        "control"
+        "hard_control"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 31,
+      "apiActive": true,
+      "className": "hero_lash",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "mcginnis",
@@ -319,7 +395,7 @@ var d={
         "dps": 2,
         "burst": 0,
         "engage": 0,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 1,
         "clear": 2,
         "heal": 2,
@@ -330,14 +406,22 @@ var d={
         "gun",
         "healing"
       ],
-      "gunCore": true
+      "gunCore": true,
+      "apiId": 8,
+      "apiActive": true,
+      "className": "hero_forge",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "mina",
       "name": "Mina",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 63,
+      "apiActive": true,
+      "className": "hero_vampirebat",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "mirage",
@@ -346,7 +430,7 @@ var d={
         "dps": 2,
         "burst": 1,
         "engage": 1,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 1,
         "clear": 1,
         "heal": 0,
@@ -357,7 +441,11 @@ var d={
         "gun",
         "mobility"
       ],
-      "gunCore": true
+      "gunCore": true,
+      "apiId": 52,
+      "apiActive": true,
+      "className": "hero_mirage",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "mo_and_krill",
@@ -366,7 +454,7 @@ var d={
         "dps": 1,
         "burst": 1,
         "engage": 2,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 2,
         "clear": 1,
         "heal": 2,
@@ -378,7 +466,11 @@ var d={
         "channel",
         "dive"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 18,
+      "apiActive": true,
+      "className": "hero_krill",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "paige",
@@ -387,7 +479,7 @@ var d={
         "dps": 0,
         "burst": 1,
         "engage": 1,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 1,
         "clear": 1,
         "heal": 2,
@@ -395,9 +487,13 @@ var d={
         "mobility": 1
       },
       "threats": [
-        "control"
+        "hard_control"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 67,
+      "apiActive": true,
+      "className": "hero_bookworm",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "paradox",
@@ -406,7 +502,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 2,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 0,
         "clear": 1,
         "heal": 0,
@@ -415,9 +511,13 @@ var d={
       },
       "threats": [
         "burst",
-        "control"
+        "hard_control"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 10,
+      "apiActive": true,
+      "className": "hero_chrono",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "pocket",
@@ -426,7 +526,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 1,
-        "control": 0,
+        "hardControl": 0,
         "frontline": 0,
         "clear": 2,
         "heal": 0,
@@ -437,14 +537,22 @@ var d={
         "dot",
         "dive"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 50,
+      "apiActive": true,
+      "className": "hero_synth",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "rem",
       "name": "Rem",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 79,
+      "apiActive": true,
+      "className": "hero_familiar",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "seven",
@@ -453,7 +561,7 @@ var d={
         "dps": 2,
         "burst": 1,
         "engage": 0,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 0,
         "clear": 2,
         "heal": 0,
@@ -463,7 +571,11 @@ var d={
       "threats": [
         "channel"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 2,
+      "apiActive": true,
+      "className": "hero_gigawatt",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "shiv",
@@ -472,7 +584,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 1,
-        "control": 0,
+        "hardControl": 0,
         "frontline": 2,
         "clear": 1,
         "heal": 2,
@@ -484,35 +596,55 @@ var d={
         "dive",
         "dot"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 19,
+      "apiActive": true,
+      "className": "hero_shiv",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "silver",
       "name": "Silver",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 80,
+      "apiActive": true,
+      "className": "hero_werewolf",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "sinclair",
       "name": "Sinclair",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 60,
+      "apiActive": true,
+      "className": "hero_magician",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "venator",
       "name": "Venator",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 65,
+      "apiActive": true,
+      "className": "hero_priest",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "victor",
       "name": "Victor",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 66,
+      "apiActive": true,
+      "className": "hero_frank",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "vindicta",
@@ -521,7 +653,7 @@ var d={
         "dps": 2,
         "burst": 2,
         "engage": 0,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 0,
         "clear": 1,
         "heal": 0,
@@ -532,7 +664,11 @@ var d={
         "range",
         "gun"
       ],
-      "gunCore": true
+      "gunCore": true,
+      "apiId": 3,
+      "apiActive": true,
+      "className": "hero_hornet",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "viscous",
@@ -541,7 +677,7 @@ var d={
         "dps": 0,
         "burst": 1,
         "engage": 1,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 2,
         "clear": 1,
         "heal": 2,
@@ -550,16 +686,24 @@ var d={
       },
       "threats": [
         "healing",
-        "control"
+        "hard_control"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 35,
+      "apiActive": true,
+      "className": "hero_viscous",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "vyper",
       "name": "Vyper",
       "traits": null,
       "threats": [],
-      "gunCore": null
+      "gunCore": null,
+      "apiId": 58,
+      "apiActive": true,
+      "className": "hero_viper",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "warden",
@@ -568,7 +712,7 @@ var d={
         "dps": 2,
         "burst": 1,
         "engage": 1,
-        "control": 1,
+        "hardControl": 1,
         "frontline": 2,
         "clear": 1,
         "heal": 1,
@@ -579,7 +723,11 @@ var d={
         "gun",
         "healing"
       ],
-      "gunCore": true
+      "gunCore": true,
+      "apiId": 25,
+      "apiActive": true,
+      "className": "hero_warden",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "wraith",
@@ -588,7 +736,7 @@ var d={
         "dps": 2,
         "burst": 1,
         "engage": 1,
-        "control": 2,
+        "hardControl": 2,
         "frontline": 0,
         "clear": 1,
         "heal": 0,
@@ -597,9 +745,13 @@ var d={
       },
       "threats": [
         "gun",
-        "control"
+        "hard_control"
       ],
-      "gunCore": true
+      "gunCore": true,
+      "apiId": 7,
+      "apiActive": true,
+      "className": "hero_wraith",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "yamato",
@@ -608,7 +760,7 @@ var d={
         "dps": 1,
         "burst": 2,
         "engage": 1,
-        "control": 0,
+        "hardControl": 0,
         "frontline": 1,
         "clear": 2,
         "heal": 1,
@@ -619,15 +771,88 @@ var d={
         "dive",
         "burst"
       ],
-      "gunCore": false
+      "gunCore": false,
+      "apiId": 27,
+      "apiActive": true,
+      "className": "hero_yamato",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "rat_king",
+      "name": "Rat King",
+      "traits": null,
+      "threats": [],
+      "gunCore": null,
+      "apiId": 84,
+      "apiActive": true,
+      "className": "hero_ratking",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "baba",
+      "name": "Baba",
+      "traits": null,
+      "threats": [],
+      "gunCore": null,
+      "apiId": 88,
+      "apiActive": false,
+      "className": "hero_baba",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "nurse_harrow",
+      "name": "Nurse Harrow",
+      "traits": null,
+      "threats": [],
+      "gunCore": null,
+      "apiId": 87,
+      "apiActive": true,
+      "className": "hero_nurse",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "violet",
+      "name": "Violet",
+      "traits": null,
+      "threats": [],
+      "gunCore": null,
+      "apiId": 86,
+      "apiActive": false,
+      "className": "hero_artist",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "deadman_danny",
+      "name": "Deadman Danny",
+      "traits": null,
+      "threats": [],
+      "gunCore": null,
+      "apiId": 78,
+      "apiActive": true,
+      "className": "hero_deadpack",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "solomon",
+      "name": "Solomon",
+      "traits": null,
+      "threats": [],
+      "gunCore": null,
+      "apiId": 85,
+      "apiActive": true,
+      "className": "hero_chessmaster",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     }
   ],
+  "catalogAdditionsSource": "https://deadlock-api.com/analytics/heroes",
+  "catalogAdditionsCheckedAt": "2026-10-25",
   "roles": {
     "gun": "枪位（持续武器输出）",
     "dps": "持续输出",
     "burst": "爆发",
     "engage": "先手",
-    "control": "控制",
+    "hardControl": "硬控（含定身/位移）",
+    "softControl": "减速软控",
     "frontline": "前排",
     "clear": "清线",
     "heal": "续航",
@@ -637,7 +862,7 @@ var d={
   "minimums": {
     "dps": 5,
     "engage": 3,
-    "control": 5,
+    "hardControl": 3,
     "frontline": 3,
     "clear": 5
   },
@@ -662,7 +887,7 @@ var d={
     {
       "id": "reactive_barrier",
       "name": "Reactive Barrier",
-      "threat": "control",
+      "threat": "hard_control",
       "reason": "面对控制接伤害时考虑护盾；需符合它的触发条件。",
       "stage": "对线防御候选",
       "caution": "不是免控，无法代替站位"
@@ -670,7 +895,7 @@ var d={
     {
       "id": "debuff_reducer",
       "name": "Debuff Reducer",
-      "threat": "control",
+      "threat": "hard_control",
       "reason": "减少可受减益抗性影响的控制压力。",
       "stage": "防御候选",
       "caution": "并非所有控制都受影响"
@@ -708,6 +933,4 @@ var d={
       "caution": "先脱离伤害并核对中断条件"
     }
   ]
-};
-if(typeof module!=="undefined")module.exports=d;else g.RankAdvisorData=d;
-})(typeof globalThis!=="undefined"?globalThis:this);
+};if(typeof module!=="undefined")module.exports=d;else g.RankAdvisorData=d;})(typeof globalThis!=="undefined"?globalThis:this);

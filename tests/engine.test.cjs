@@ -87,3 +87,17 @@ test('keep requires a completed comparison with an eligible supported alternativ
  const r=create(data,{unlocked:['celeste']}).analyze(screenshotMatch({friendly:['wraith',...screenshot.slice(1)],own:'wraith'}));
  a.equal(r.decision,'keep');a.equal(r.keep,true);a.deepEqual(r.recommendations,[]);
 });
+test('Kelvin slows and isolation do not count as a hard disable or trigger hard-control items',()=>{
+ const h=data.heroes.find(h=>h.id==='kelvin');a.equal(h.traits.hardControl,0);a.equal(h.traits.softControl,2);a.ok(!h.threats.includes('hard_control'));a.ok(h.mechanicsNote.includes('不能据此推断'));
+ const e=create(data,profile()),r=e.analyze(match());a.ok(r.items.filter(x=>x.name==='Reactive Barrier'||x.name==='Debuff Reducer').every(x=>!x.targets.includes('Kelvin')));
+ a.ok(!e.lane('kelvin','pocket',['haze','wraith']).notes.some(x=>x.includes('己方具备硬控')));
+});
+test('new catalog names are recognized without claiming verified mechanics',()=>{
+ const e=create(data,profile());for(const [name,id] of [['Rat King','rat_king'],['Baba','baba'],['Nurse Harrow','nurse_harrow'],['Violet','violet']]){a.equal(e.resolve(name),id);a.equal(e.heroes[id].traits,null);}
+});
+test('inactive catalog heroes require explicit current-match availability and still require pool membership',()=>{
+ const custom=JSON.parse(JSON.stringify(data));custom.heroes.find(h=>h.id==='paradox').apiActive=false;
+ const e=create(custom,{unlocked:['paradox']});a.equal(e.analyze(match()).decision,'no_eligible_candidates');
+ a.equal(e.analyze(match({available:['paradox']})).decision,'recommend_swap');
+ a.equal(create(custom,{unlocked:[]}).analyze(match({available:['paradox']})).decision,'needs_pool');
+});

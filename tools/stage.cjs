@@ -15,7 +15,7 @@ function patchHud(hud){
  if(hud.includes('rank_advisor/'))throw Error('Already integrated; stage from a clean QoL source');
  const app=/<include\s+src="s2r:\/\/panorama\/scripts\/core\/ql_app\.vjs(?:_c)?"\s*\/>/g;
  if((hud.match(app)||[]).length!==1||!hud.includes('ql_feature_registry')||!hud.includes('</styles>'))throw Error('Unsupported QoL HUD layout; expected FeatureRegistry and one ql_app include');
- const includes=['data','profile','engine','hud'].map(f=>'\t\t<include src="s2r://panorama/scripts/rank_advisor/'+f+'.vjs_c" />').join('\n');
+ const includes=['data','stats-data','statistics','profile','engine','hud'].map(f=>'\t\t<include src="s2r://panorama/scripts/rank_advisor/'+f+'.vjs_c" />').join('\n');
  return hud.replace('</styles>','\t<include src="s2r://panorama/styles/rank_advisor.vcss_c" />\n\t</styles>').replace(app,m=>includes+'\n\t\t'+m);
 }
 function stage(qol,out,profilePath){
@@ -31,7 +31,7 @@ function stage(qol,out,profilePath){
    const source=path.join(qol,entry);if(fs.existsSync(source))fs.cpSync(source,path.join(out,entry),{recursive:true,dereference:false});
   }
   const target=path.join(out,'panorama/scripts/rank_advisor');fs.mkdirSync(target,{recursive:true});
-  for(const f of ['data.js','engine.js','hud.js'])fs.copyFileSync(path.join(project,'src',f),path.join(target,f));
+  for(const f of ['data.js','stats-data.js','statistics.js','engine.js','hud.js'])fs.copyFileSync(path.join(project,'src',f),path.join(target,f));
   fs.writeFileSync(path.join(target,'profile.js'),'(function(g){g.RankAdvisorProfile='+JSON.stringify(profile)+';})(globalThis);\n');
   fs.mkdirSync(path.join(out,'panorama/styles'),{recursive:true});fs.copyFileSync(path.join(project,'src/hud.css'),path.join(out,'panorama/styles/rank_advisor.css'));
   fs.writeFileSync(path.join(out,'panorama/layout/hud.xml'),patched);

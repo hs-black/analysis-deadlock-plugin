@@ -1,6 +1,9 @@
 (function (g) {
     'use strict';
-    function create(data, profile) {
+    var Stats=typeof module!=='undefined'?require('./statistics.js'):g.RankAdvisorStatistics;
+    var statsData=typeof module!=='undefined'?require('./stats-data.js'):g.RankAdvisorStatsData;
+    function create(data, profile, statistics) {
+        var stats=Stats.create(statistics||statsData);
         var heroes = Object.create(null), aliases = Object.create(null), roleKeys = Object.keys(data.minimums);
         function key(s) { return String(s || '').trim().toLowerCase().replace(/[\s_&-]+/g, ''); }
         data.heroes.forEach(function (h) { heroes[h.id] = h; aliases[key(h.id)] = h.id; aliases[key(h.name)] = h.id; });
@@ -52,13 +55,14 @@
             if (ids.length !== 4 || new Set(ids).size !== 4 || !ids.every(known)) return {ready: false, notes: ['请确认同路队友及两名敌人；所有英雄需要有规则数据。']};
             var a = totals([own, mate]), b = totals(foes), notes = [];
             if (b.poke > a.poke) notes.push('对面远程消耗能力偏强：优先保血、利用掩体补刀。');
-            if (b.control + b.burst > a.control + a.burst) notes.push('警惕对面控制接爆发：避免两人同时进入连招范围。');
-            if (a.control >= 2 && a.burst >= 2) notes.push('己方具备控制接爆发条件：等队友技能就绪再换血。');
+            if (b.hardControl + b.burst > a.hardControl + a.burst) notes.push('警惕对面硬控接爆发：避免两人同时进入连招范围。');
+            if (a.hardControl >= 2 && a.burst >= 2) notes.push('己方具备硬控接爆发条件：等队友技能就绪再换血。');
+            if (foes.indexOf('kelvin')>=0) notes.push('Kelvin：减速与降低射速、冰罩隔离；不按眩晕或打断计算。');
             if (b.heal > a.heal) notes.push('对面续航偏强：减少无收益换血，评估重伤投入。');
             if (a.clear < b.clear) notes.push('清线压力可能较大：避免被兵线和英雄同时消耗。');
             if (!notes.length) notes.push('未发现明显的机制短板；优先按熟练打法处理兵线。');
             // Only a rules-based comparison, never a lane-win probability.
-            var edge = (a.poke-b.poke)*0.7+(a.clear-b.clear)*0.6+(a.heal-b.heal)*0.5+(a.control+a.burst-b.control-b.burst)*0.4;
+            var edge = (a.poke-b.poke)*0.7+(a.clear-b.clear)*0.6+(a.heal-b.heal)*0.5+(a.hardControl+a.burst-b.hardControl-b.burst)*0.4;
             return {ready:true, edge:edge, label:edge>1.5?'机制搭配偏有利':edge< -1.5?'机制搭配压力较大':'机制搭配接近',notes:notes};
         }
         function fit(candidate, team, enemy, context) {
@@ -66,8 +70,7 @@
             if (!c.missing.length) roleKeys.forEach(function (k) { score += Math.min(c.totals[k],data.minimums[k])*0.6; });
             // One assigned weapon carry fills a distinct role; stacking more earns no extra score.
             if (!c.gunUnknown.length && c.gunHeroes.length) score+=3;
-            if (ts.dive && t.control >= 2) {score+=1;reasons.push('增加应对突进的控制');}
-            if (ts.channel && t.control >= 2) {score+=0.7;reasons.push('增加控制手段；需核对能否打断目标技能');}
+            if (ts.dive && t.hardControl >= 2) {score+=1;reasons.push('增加应对突进的硬控');}
             if (ts.range && t.mobility >= 2) {score+=0.5;reasons.push('增加接近远程目标的机动性');}
             var l = lane(candidate,context.mate,context.foes);
             if(l.ready)score+=l.edge*0.35;
@@ -94,7 +97,7 @@
             var recommendations=[], base=null, decision, eligible=[];
             var pool=Array.from(new Set((profile.unlocked||[]).map(resolve).filter(Boolean)));
             var available=Array.isArray(input.available)?input.available.map(resolve).filter(Boolean):null;
-            eligible=pool.filter(function(id){return id!==own&&friendly.indexOf(id)<0&&enemy.indexOf(id)<0&&(profile.excluded||[]).indexOf(id)<0&&(!available||available.indexOf(id)>=0);});
+            eligible=pool.filter(function(id){return id!==own&&friendly.indexOf(id)<0&&enemy.indexOf(id)<0&&(profile.excluded||[]).indexOf(id)<0&&(!available||available.indexOf(id)>=0)&&(heroes[id].apiActive!==false||(available&&available.indexOf(id)>=0));});
             if(ownIndex<0)decision='needs_hero';
             else if(comp.missing.length||coveredEnemy<6||comp.gunUnknown.length)decision='insufficient_data';
             else if(!pool.length)decision='needs_pool';
@@ -114,14 +117,16 @@
             var messages={needs_hero:'先选择你使用的英雄，再比较换人收益。',
                 insufficient_data:'资料不足，暂时无法判断是否值得换人；这不代表建议保留。',
                 needs_pool:'请先勾选已解锁英雄池，才能从你可用的英雄中推荐换人。',
-                no_eligible_candidates:'英雄池中没有符合占用、排除和本局可选条件的替换候选。',
+                no_eligible_candidates:'英雄池中没有符合占用、排除、资源可选状态和本局可选条件的替换候选。',
                 no_supported_candidates:'可选候选尚未覆盖规则，暂时无法比较换人收益。',
                 recommend_swap:'可以考虑换人：以下候选相对你当前英雄有规则收益。',
                 keep:'已比较有规则数据的可用候选，暂未发现明显换人收益。'};
             if(eligible.some(function(id){return !known(id);}))warnings.push('部分英雄池候选未覆盖，比较结果只适用于已有规则的候选。');
             if(!profile.unlocked||!profile.unlocked.length)warnings.push('尚未配置已解锁英雄池，不生成换人推荐。');
             if(!Array.isArray(input.available))warnings.push('本局可选状态未自动验证；换人前以游戏选人界面为准。');
-            return {ready:true,friendly:friendly,enemy:enemy,composition:comp,enemyCoverage:coveredEnemy,
+            var statResult=stats.analyze({friendly:friendly,enemy:enemy,own:own},ownIndex>=0?eligible:[]);
+            return {ready:true,friendly:friendly,enemy:enemy,composition:comp,enemyCoverage:coveredEnemy,statistics:statResult,statisticsLines:Stats.lines(statResult,name),
+                mechanicsNotes:friendly.concat(enemy).filter(function(id){return heroes[id]&&heroes[id].mechanicsNote;}).map(function(id){return name(id)+'：'+heroes[id].mechanicsNote;}),
                 ownSelected:ownIndex>=0,lane:lane(own,context.mate,context.foes),items:items,
                 recommendations:decision==='recommend_swap'?recommendations.filter(function(x){return x.delta>=0.5;}).slice(0,3):[],
                 decision:decision,decisionMessage:messages[decision],keep:decision==='keep'?true:decision==='recommend_swap'?false:null,warnings:warnings};

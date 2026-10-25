@@ -1,161 +1,366 @@
 {
-  "version": "0.1.1",
+  "version": "0.2.0",
   "kind": "mechanics-heuristic",
   "reviewedPatch": null,
-  "catalogSource": "https://github.com/0xThiagoAmaral/deadlock-open-assets/blob/main/assets/game/heroes.json",
-  "catalogDate": "2026-06-20",
+  "catalogSource": "https://api.deadlock-api.com/v1/assets/heroes",
+  "catalogDate": "2026-10-25",
   "heroes": [
     {
       "id": "abrams",
-      "name": "Abrams"
+      "name": "Abrams",
+      "apiId": 6,
+      "apiActive": true,
+      "className": "hero_atlas",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "apollo",
-      "name": "Apollo"
+      "name": "Apollo",
+      "apiId": 77,
+      "apiActive": true,
+      "className": "hero_fencer",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "bebop",
-      "name": "Bebop"
+      "name": "Bebop",
+      "apiId": 15,
+      "apiActive": true,
+      "className": "hero_bebop",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "billy",
-      "name": "Billy"
+      "name": "Billy",
+      "apiId": 72,
+      "apiActive": true,
+      "className": "hero_punkgoat",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "calico",
-      "name": "Calico"
+      "name": "Calico",
+      "apiId": 16,
+      "apiActive": true,
+      "className": "hero_nano",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "celeste",
-      "name": "Celeste"
+      "name": "Celeste",
+      "apiId": 81,
+      "apiActive": true,
+      "className": "hero_unicorn",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "doorman",
-      "name": "The Doorman"
+      "name": "The Doorman",
+      "apiId": 69,
+      "apiActive": true,
+      "className": "hero_doorman",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "drifter",
-      "name": "Drifter"
+      "name": "Drifter",
+      "apiId": 64,
+      "apiActive": true,
+      "className": "hero_drifter",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "dynamo",
-      "name": "Dynamo"
+      "name": "Dynamo",
+      "apiId": 11,
+      "apiActive": true,
+      "className": "hero_dynamo",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "graves",
-      "name": "Graves"
+      "name": "Graves",
+      "apiId": 76,
+      "apiActive": true,
+      "className": "hero_necro",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "grey_talon",
-      "name": "Grey Talon"
+      "name": "Grey Talon",
+      "apiId": 17,
+      "apiActive": true,
+      "className": "hero_orion",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "haze",
-      "name": "Haze"
+      "name": "Haze",
+      "apiId": 13,
+      "apiActive": true,
+      "className": "hero_haze",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "holliday",
-      "name": "Holliday"
+      "name": "Holliday",
+      "apiId": 14,
+      "apiActive": true,
+      "className": "hero_astro",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "infernus",
-      "name": "Infernus"
+      "name": "Infernus",
+      "apiId": 1,
+      "apiActive": true,
+      "className": "hero_inferno",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "ivy",
-      "name": "Ivy"
+      "name": "Ivy",
+      "apiId": 20,
+      "apiActive": true,
+      "className": "hero_tengu",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "kelvin",
-      "name": "Kelvin"
+      "name": "Kelvin",
+      "mechanicsNote": "Frost Grenade / Arctic Beam：减速，射线还降低射速；Frozen Shelter：封路隔离。不能据此推断眩晕、定身或打断。",
+      "mechanicsSource": "https://www.deadlock.io/en/heroes/kelvin",
+      "mechanicsCheckedAt": "2026-10-25",
+      "apiId": 12,
+      "apiActive": true,
+      "className": "hero_kelvin",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "lady_geist",
-      "name": "Lady Geist"
+      "name": "Lady Geist",
+      "apiId": 4,
+      "apiActive": true,
+      "className": "hero_ghost",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "lash",
-      "name": "Lash"
+      "name": "Lash",
+      "apiId": 31,
+      "apiActive": true,
+      "className": "hero_lash",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "mcginnis",
-      "name": "McGinnis"
+      "name": "McGinnis",
+      "apiId": 8,
+      "apiActive": true,
+      "className": "hero_forge",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "mina",
-      "name": "Mina"
+      "name": "Mina",
+      "apiId": 63,
+      "apiActive": true,
+      "className": "hero_vampirebat",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "mirage",
-      "name": "Mirage"
+      "name": "Mirage",
+      "apiId": 52,
+      "apiActive": true,
+      "className": "hero_mirage",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "mo_and_krill",
-      "name": "Mo & Krill"
+      "name": "Mo & Krill",
+      "apiId": 18,
+      "apiActive": true,
+      "className": "hero_krill",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "paige",
-      "name": "Paige"
+      "name": "Paige",
+      "apiId": 67,
+      "apiActive": true,
+      "className": "hero_bookworm",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "paradox",
-      "name": "Paradox"
+      "name": "Paradox",
+      "apiId": 10,
+      "apiActive": true,
+      "className": "hero_chrono",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "pocket",
-      "name": "Pocket"
+      "name": "Pocket",
+      "apiId": 50,
+      "apiActive": true,
+      "className": "hero_synth",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "rem",
-      "name": "Rem"
+      "name": "Rem",
+      "apiId": 79,
+      "apiActive": true,
+      "className": "hero_familiar",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "seven",
-      "name": "Seven"
+      "name": "Seven",
+      "apiId": 2,
+      "apiActive": true,
+      "className": "hero_gigawatt",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "shiv",
-      "name": "Shiv"
+      "name": "Shiv",
+      "apiId": 19,
+      "apiActive": true,
+      "className": "hero_shiv",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "silver",
-      "name": "Silver"
+      "name": "Silver",
+      "apiId": 80,
+      "apiActive": true,
+      "className": "hero_werewolf",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "sinclair",
-      "name": "Sinclair"
+      "name": "Sinclair",
+      "apiId": 60,
+      "apiActive": true,
+      "className": "hero_magician",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "venator",
-      "name": "Venator"
+      "name": "Venator",
+      "apiId": 65,
+      "apiActive": true,
+      "className": "hero_priest",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "victor",
-      "name": "Victor"
+      "name": "Victor",
+      "apiId": 66,
+      "apiActive": true,
+      "className": "hero_frank",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "vindicta",
-      "name": "Vindicta"
+      "name": "Vindicta",
+      "apiId": 3,
+      "apiActive": true,
+      "className": "hero_hornet",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "viscous",
-      "name": "Viscous"
+      "name": "Viscous",
+      "apiId": 35,
+      "apiActive": true,
+      "className": "hero_viscous",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "vyper",
-      "name": "Vyper"
+      "name": "Vyper",
+      "apiId": 58,
+      "apiActive": true,
+      "className": "hero_viper",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "warden",
-      "name": "Warden"
+      "name": "Warden",
+      "apiId": 25,
+      "apiActive": true,
+      "className": "hero_warden",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "wraith",
-      "name": "Wraith"
+      "name": "Wraith",
+      "apiId": 7,
+      "apiActive": true,
+      "className": "hero_wraith",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     },
     {
       "id": "yamato",
-      "name": "Yamato"
+      "name": "Yamato",
+      "apiId": 27,
+      "apiActive": true,
+      "className": "hero_yamato",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "rat_king",
+      "name": "Rat King",
+      "apiId": 84,
+      "apiActive": true,
+      "className": "hero_ratking",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "baba",
+      "name": "Baba",
+      "apiId": 88,
+      "apiActive": false,
+      "className": "hero_baba",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "nurse_harrow",
+      "name": "Nurse Harrow",
+      "apiId": 87,
+      "apiActive": true,
+      "className": "hero_nurse",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "violet",
+      "name": "Violet",
+      "apiId": 86,
+      "apiActive": false,
+      "className": "hero_artist",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "deadman_danny",
+      "name": "Deadman Danny",
+      "apiId": 78,
+      "apiActive": true,
+      "className": "hero_deadpack",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
+    },
+    {
+      "id": "solomon",
+      "name": "Solomon",
+      "apiId": 85,
+      "apiActive": true,
+      "className": "hero_chessmaster",
+      "catalogVerifiedAt": "2026-10-25T19:24:53.259Z"
     }
-  ]
+  ],
+  "catalogAdditionsSource": "https://deadlock-api.com/analytics/heroes",
+  "catalogAdditionsCheckedAt": "2026-10-25"
 }

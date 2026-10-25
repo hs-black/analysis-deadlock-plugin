@@ -13,7 +13,7 @@ function harness(unlocked=[]){
  const a=['Haze','Wraith','Vindicta','Seven','Infernus','McGinnis'],b=['Abrams','Mo & Krill','Kelvin','Lash','Bebop','Dynamo'];
  const rows=[];[a,b].forEach((team,n)=>{const t=new Panel('CitadelHudTopBarTeam',top,n?'TeamEnemy':'TeamFriendly'),container=new Panel('Panel',t,'PlayersContainer');rows[n]=team.map(id=>{const p=new Panel('CitadelHudTopBarPlayer',container,''),l=new Panel('Label',p,'');l.AddClass('HeroNameHidden');l.text=id;return l;});});
  const ctx=vm.createContext({QOL:{core:{FeatureRegistry:{register:m=>manifest=m}}},$:{GetContextPanel:()=>root,CreatePanel:(t,p,id)=>new Panel(t,p,id),Schedule:(s,f)=>queue.push(f),Msg:t=>logs.push(t),DispatchEvent:()=>{}}});
- for(const f of ['data','profile','engine','hud'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/'+f+'.js'),'utf8'),ctx);
+ for(const f of ['data','stats-data','statistics','profile','engine','hud'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/'+f+'.js'),'utf8'),ctx);
  ctx.RankAdvisorProfile.unlocked=unlocked;
  const inst=manifest.create();inst.onEnable();return {root,rows,queue,logs,inst,step:()=>queue.shift()?.(),texts:()=>{const walk=p=>[p.text,...p.children.flatMap(walk)];const box=root.FindChildTraverse('RankAdvisor');return box?walk(box).filter(Boolean).join('\n'):'';}};
 }

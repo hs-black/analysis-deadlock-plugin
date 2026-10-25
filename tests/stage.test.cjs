@@ -8,6 +8,7 @@ test('stage preserves originals, inserts before app boot, preserves licenses, re
  a.equal(fs.readFileSync(path.join(qol,'panorama/layout/hud.xml'),'utf8'),hud);
  const p=fs.readFileSync(path.join(out,'panorama/layout/hud.xml'),'utf8');
  a.ok(p.indexOf('rank_advisor/hud')<p.indexOf('core/ql_app'));a.equal((p.match(/rank_advisor\/engine/g)||[]).length,1);
+ a.ok(p.indexOf('rank_advisor/statistics')<p.indexOf('rank_advisor/engine'));a.ok(fs.existsSync(path.join(out,'panorama/scripts/rank_advisor/stats-data.js')));
  a.equal(fs.readFileSync(path.join(out,'LICENSE'),'utf8'),'fixture license');a.ok(fs.existsSync(path.join(out,'panorama/scripts/rank_advisor/profile.js')));
  a.throws(()=>stage(qol,out,path.resolve(__dirname,'../profiles/default.json')),/exists/);
  a.throws(()=>stage(qol,path.join(qol,'subdir'),path.resolve(__dirname,'../profiles/default.json')),/outside/);

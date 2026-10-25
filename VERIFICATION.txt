@@ -1,7 +1,7 @@
-Rank Advisor 0.1.1 verification
+Rank Advisor 0.2.0 verification
 
 Passed:
-- 20 Node.js tests: snapshot freezing/reset, eligibility filtering, incomplete data,
+- 33 Node.js tests: snapshot freezing/reset, eligibility filtering, incomplete data,
   lane selection validity, item target mapping, Panorama-shaped mock lifecycle,
   non-destructive staging and invalid-profile rejection.
 - Reported Celeste/Paige/Graves/Viscous/Apollo/Doorman roster: all six covered,
@@ -16,7 +16,22 @@ Passed:
   0.1.1 regression: screenshot roster covers 6/6, empty-pool explanation, gun-carry
   suggestions, and manual build override all render correctly.
 
+New 0.2.0 checks:
+- Chromium renders real historical percentages, sample counts/intervals, 44-hero
+  catalog and Kelvin mechanism correction without JavaScript errors.
+- Kelvin slow/isolation never counted as a hard disable or hard-control item target.
+- New hero names resolve without fabricated mechanics.
+- Statistics: directional counters, baseline adjustment, Wilson intervals,
+  minimum samples, freshness, six-enemy coverage, and eligibility filtering.
+- Sync: consistent ranked/date/rank filters, explicit same_lane_filter=false,
+  new-hero ID mapping, malformed/unknown data rejection, failed fetch preserves files.
+- Statistical fixtures are synthetic tests only; shipped snapshot is real API data.
+- Live sync completed 2026-10-25: 44 hero records, 1,892 directed counter pairs,
+  946 teammate pairs. Ranked, normal map, all ranks, explicit seven-day window.
+  Current v1 asset API and Node environment-proxy support used.
+
 Not verified:
+- Current-patch calibrated whole-match win prediction (not implemented).
 - Windows PowerShell wrapper execution and CSDK resource compilation.
 - Native Deadlock UI data bindings, mouse interaction, rendering and frame time.
 - Current-patch competitive recommendation accuracy.
