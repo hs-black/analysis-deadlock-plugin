@@ -7,8 +7,8 @@
         return {wins:r.wins,matches:n,winRate:p,low:Math.max(0,mid-half),high:Math.min(1,mid+half),sufficient:n>=min};
     }
     function create(snapshot){
-        var s=snapshot||{},min=100,heroes=Object.create(null),counters=Object.create(null),synergies=Object.create(null);
-        (s.heroes||[]).forEach(function(r){heroes[r.id]=record(r,min);});
+        var s=snapshot||{},min=30,heroes=Object.create(null),counters=Object.create(null),synergies=Object.create(null);
+        (s.heroes||[]).forEach(function(r){heroes[r.id]=record(r,100);});
         (s.counters||[]).forEach(function(r){counters[r.id+'|'+r.enemy]=record(r,min);});
         (s.synergies||[]).forEach(function(r){synergies[[r.id,r.ally].sort().join('|')]=record(r,min);});
         function summary(id,team,enemies){
@@ -19,7 +19,7 @@
                     // NOT a causal effect or a probability for the six-versus-six match.
                     var p=Math.max(.01,Math.min(.99,base.winRate)),q=Math.max(.01,Math.min(.99,b.winRate));
                     var expected=(p*(1-q))/(p*(1-q)+(1-p)*q);
-                    effect=(r.winRate-expected)*r.matches/(r.matches+200);
+                    effect=(r.winRate-expected)*r.matches/(r.matches+400);
                 }
                 return {enemy:enemy,record:r,effect:effect};
             });
@@ -40,17 +40,13 @@
     }
     function formatRecord(r){return !r?'无样本':(r.winRate*100).toFixed(1)+'% · '+r.matches+' 场 · 95% 区间 '+(r.low*100).toFixed(1)+'–'+(r.high*100).toFixed(1)+'%'+(r.sufficient?'':' · 样本不足');}
     function lines(r,name){
-        var out=[r.status];
-        if(!r.loaded)return out;
-        var m=r.metadata,f=m.filters;
-        out.push('来源 Deadlock API · 抓取 '+m.fetchedAt+' · '+m.windowStart+' 至 '+m.windowEnd+' · '+f.match_mode+' · 段位 '+(f.min_average_badge==null?'不限':f.min_average_badge)+'–'+(f.max_average_badge==null?'不限':f.max_average_badge));
-        out.push('时间窗口可能跨补丁；不是 Statlocker 私有模型或全量玩家数据。');
-        out.push(name(r.own.id)+' 总体历史胜率：'+formatRecord(r.own.overall));
+        if(!r.loaded)return ['尚未加载历史对局数据；可运行 npm run sync-data 更新。'];
+        var m=r.metadata,f=m.filters,out=[];
+        out.push('来源 Deadlock API · '+m.fetchedAt+' · '+(m.windowStart||'')+' 至 '+(m.windowEnd||'')+' · '+f.match_mode+' · 段位 '+(f.min_average_badge==null?'不限':f.min_average_badge)+'–'+(f.max_average_badge==null?'不限':f.max_average_badge));
+        if(!r.fresh)out.push('历史数据已过期，当前排序使用技能机制与阵容搭配。');
+        out.push(name(r.own.id)+' 总体：'+formatRecord(r.own.overall));
         r.own.counters.forEach(function(x){out.push('对阵 '+name(x.enemy)+'：'+formatRecord(x.record));});
         r.own.synergies.forEach(function(x){out.push('与 '+name(x.ally)+' 同队：'+formatRecord(x.record));});
-        if(r.recommendations.length)r.recommendations.forEach(function(x){out.push('统计候选 '+name(x.id)+' · 总体 '+formatRecord(x.overall)+' · counter 指标差 '+((x.index-r.own.index)*100).toFixed(2)+' 点（不是胜率提升）');x.counters.forEach(function(v){out.push('  '+name(x.id)+' 对 '+name(v.enemy)+'：'+formatRecord(v.record));});});
-        else out.push('没有达到统计比较条件和指标阈值的候选；不等于阵容无需补位。');
-        out.push('这些都是整场结果；同队/敌对关系不证明因果克制，也不能相加得到整队胜率。');
         return out;
     }
     var api={create:create,record:record,lines:lines};if(typeof module!=='undefined')module.exports=api;else g.RankAdvisorStatistics=api;

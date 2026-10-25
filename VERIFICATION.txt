@@ -1,40 +1,44 @@
-Rank Advisor 0.2.0 verification
+Rank Advisor 0.3.0 verification — 2026-10-25
 
 Passed:
-- 33 Node.js tests: snapshot freezing/reset, eligibility filtering, incomplete data,
-  lane selection validity, item target mapping, Panorama-shaped mock lifecycle,
-  non-destructive staging and invalid-profile rejection.
-- Reported Celeste/Paige/Graves/Viscous/Apollo/Doorman roster: all six covered,
-  missing gun role detected, eligible gun alternatives recommended; missing data,
-  empty pool and unusable candidates are not mistaken for a keep decision.
-- Hero-specific gun-build overrides and next-match reset in the mocked HUD.
-- Prior 0.1.0 integration check with real downloaded QoL HUD XML: source integration succeeded; new script includes
-  precede ql_app startup, and the resulting XML parses.
-- Chromium development preview: loads without JavaScript exceptions, hero-pool
-  edit works, changing enemy selection does not overwrite the frozen snapshot,
-  resetting the match permits a new snapshot, no horizontal overflow at 1400px.
-  0.1.1 regression: screenshot roster covers 6/6, empty-pool explanation, gun-carry
-  suggestions, and manual build override all render correctly.
+- 42 Node.js tests. Coverage includes initial enemy freeze, next-match reset,
+  eligibility/occupancy/exclusions, alternate builds, and usable alternatives
+  even when retaining the current hero scores higher.
+- Synthetic statistics change the recommended hero when switching between
+  counter and synergy objectives. Partial observations, invalid samples,
+  stale snapshots and filtering mismatches are handled explicitly.
+- All 44 hero models resolve four signature skills and capability references.
+  Conditional reanimation and reactive barriers are not active setup tools;
+  Sleep Dagger and Rabbit Hex are not used as channel interrupts.
+- Three-lane plans cover each hero exactly once, preserve a locked partner,
+  and agree with each swap candidate's recommended partner.
+- Equipment tests cover Dispel Magic versus non-ultimate debuffs, Divine
+  Barrier against ultimate DoT, silence versus interruption, pre-use of
+  Unstoppable, purpose deduplication, and current standard-shop prices.
+- Mocked Panorama lifecycle reads native-shaped panels, updates allies,
+  preserves the initial enemy roster, renders actionable cards, resets
+  build overrides and cancels callbacks on disable.
+- Stage tests verify script order, inclusion of knowledge/planner modules,
+  license preservation, profile validation and refusal to overwrite source.
+- Real downloaded QoL HUD XML: new modules inserted before ql_app;
+  generated XML parses. This checks source integration, not native execution.
+- Headless Chromium: three swap cards, objective selector, build override,
+  frozen enemy roster and next-match reset, collapsed evidence by default,
+  44-hero / 156-item searchable library, no JavaScript exceptions, and no
+  horizontal overflow at 1400px. Screenshot inspected.
+- Live sync-knowledge downloaded pinned build 6819 successfully, generating
+  208 ability records and 173 normal-shop records (156 standard items).
+  An unreviewed future build preserves the packaged knowledge in tests.
+- Shipped match statistics are real API results fetched 2026-10-25:
+  44 hero records, 1,892 directional counters, 946 teammate pairs;
+  ranked normal-map matches over an explicit seven-day window, all ranks.
+  Synthetic counts are confined to tests.
 
-New 0.2.0 checks:
-- Chromium renders real historical percentages, sample counts/intervals, 44-hero
-  catalog and Kelvin mechanism correction without JavaScript errors.
-- Kelvin slow/isolation never counted as a hard disable or hard-control item target.
-- New hero names resolve without fabricated mechanics.
-- Statistics: directional counters, baseline adjustment, Wilson intervals,
-  minimum samples, freshness, six-enemy coverage, and eligibility filtering.
-- Sync: consistent ranked/date/rank filters, explicit same_lane_filter=false,
-  new-hero ID mapping, malformed/unknown data rejection, failed fetch preserves files.
-- Statistical fixtures are synthetic tests only; shipped snapshot is real API data.
-- Live sync completed 2026-10-25: 44 hero records, 1,892 directed counter pairs,
-  946 teammate pairs. Ranked, normal map, all ranks, explicit seven-day window.
-  Current v1 asset API and Node environment-proxy support used.
+Remaining verification:
+- Windows PowerShell wrapper and CSDK compilation.
+- Deadlock native bindings, mouse interaction, rendering and frame time.
+- Recommendation quality and weight calibration using actual ranked games.
 
-Not verified:
-- Current-patch calibrated whole-match win prediction (not implemented).
-- Windows PowerShell wrapper execution and CSDK resource compilation.
-- Native Deadlock UI data bindings, mouse interaction, rendering and frame time.
-- Current-patch competitive recommendation accuracy.
-- Automatic ranked-unlock, Steam-account and lane detection (not implemented).
-
-The browser and mocked Panorama tests do not establish in-game functionality.
+Automatic account/unlock/lane detection and a trained six-versus-six win
+probability model are not implemented. Hero pool and lane opponents are
+user-confirmed; UI recommendations do not select heroes or purchase items.

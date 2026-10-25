@@ -1,0 +1,1463 @@
+{
+  "build": 6819,
+  "dimensionScale": "0..3 authored build-plan ratings; linked ability evidence in generated knowledge",
+  "heroes": {
+    "abrams": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 1,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 2,
+        "frontline": 3,
+        "sustain": 3,
+        "save": 0,
+        "engage": 3,
+        "tempo": 3,
+        "scaling": 1,
+        "clear": 1,
+        "poke": 0,
+        "mobility": 2
+      },
+      "route": "frontline",
+      "tags": [
+        "healing",
+        "melee",
+        "dive",
+        "hardControl"
+      ],
+      "plan": "贴近后用 Shoulder Charge 接墙控，靠 Siphon Life 和恢复顶住第一轮伤害",
+      "strength": "前排承伤与近身开团",
+      "tradeoff": "远距离消耗和持续追射较弱",
+      "capabilities": {
+        "interrupt": 2,
+        "setup": 2,
+        "engage": 4
+      },
+      "interruptNote": "找准贴墙角度，用 Shoulder Charge 撞晕"
+    },
+    "apollo": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 1,
+        "sustain": 2,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 1,
+        "poke": 0,
+        "mobility": 3
+      },
+      "route": "spirit",
+      "tags": [
+        "dive",
+        "melee",
+        "mobility",
+        "burst"
+      ],
+      "plan": "用 Riposte 反击窗口切入，Flawless Advance 接 Itani Lo Sahn 收割",
+      "strength": "机动切入与单点爆发",
+      "tradeoff": "需要贴近，持续推线能力较弱",
+      "capabilities": {
+        "interrupt": 2,
+        "setup": 4,
+        "engage": 3
+      }
+    },
+    "bebop": {
+      "dimensions": {
+        "weapon": 2,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 2,
+        "sustain": 1,
+        "save": 1,
+        "engage": 3,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 0
+      },
+      "route": "hybrid",
+      "tags": [
+        "channel",
+        "burst",
+        "nonUltDebuff",
+        "catch"
+      ],
+      "plan": "Grapple Arm 把落单目标拉到队友火力内，炸弹逼走位后接 Hyper Beam",
+      "strength": "远距离抓人和爆发",
+      "tradeoff": "拉空后机动性弱",
+      "capabilities": {
+        "interrupt": 1,
+        "setup": 3,
+        "save": 3,
+        "channel": 4,
+        "cleanseTarget": 2
+      }
+    },
+    "billy": {
+      "dimensions": {
+        "weapon": 2,
+        "spirit": 1,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 3,
+        "frontline": 3,
+        "sustain": 1,
+        "save": 0,
+        "engage": 3,
+        "tempo": 3,
+        "scaling": 1,
+        "clear": 2,
+        "poke": 0,
+        "mobility": 2
+      },
+      "route": "frontline",
+      "tags": [
+        "melee",
+        "dive",
+        "hardControl",
+        "mobilityLock"
+      ],
+      "plan": "Rising Ram 接 Bashdown，Chain Gang 把多人留在己方范围伤害里",
+      "strength": "群体聚拢与前排开团",
+      "tradeoff": "远程持续输出和治疗较弱",
+      "capabilities": {
+        "interrupt": 1,
+        "setup": 4,
+        "engage": 2,
+        "group": 4
+      }
+    },
+    "calico": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 2,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 1,
+        "sustain": 2,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "spirit",
+      "tags": [
+        "melee",
+        "dive",
+        "mobility",
+        "burst"
+      ],
+      "plan": "先用 Gloom Bombs 消耗，Leaping Slash 切入，Return to Shadows 躲反打",
+      "strength": "切后排与反复进出",
+      "tradeoff": "缺少稳定留人技能",
+      "capabilities": {
+        "engage": 2,
+        "escape": 4
+      }
+    },
+    "celeste": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 3,
+        "teamControl": 0,
+        "frontline": 1,
+        "sustain": 2,
+        "save": 0,
+        "engage": 0,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 2,
+        "mobility": 1
+      },
+      "route": "spirit",
+      "tags": [
+        "spiritBurst",
+        "healing",
+        "silence",
+        "aoe"
+      ],
+      "plan": "用 Radiant Daggers 压住入口，Light Eater 后持续命中，Shining Wonder 追击聚集目标",
+      "strength": "范围元灵伤害与团战爆发",
+      "tradeoff": "主动开团和远距离撤离较弱",
+      "capabilities": {
+        "area": 3,
+        "cleanseTarget": 1,
+        "punish": 2
+      }
+    },
+    "doorman": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 1,
+        "sustain": 0,
+        "save": 2,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 2,
+        "mobility": 3
+      },
+      "route": "support",
+      "tags": [
+        "mobility",
+        "isolation",
+        "catch"
+      ],
+      "plan": "Doorway 帮全队转线，Luggage Cart 抓人，Hotel Guest 临时移走关键敌人",
+      "strength": "调动站位与隔离关键目标",
+      "tradeoff": "单人持续输出和续航较弱",
+      "capabilities": {
+        "setup": 3,
+        "save": 2,
+        "engage": 3,
+        "isolate": 4
+      }
+    },
+    "drifter": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 1,
+        "burst": 3,
+        "aoe": 1,
+        "teamControl": 0,
+        "frontline": 1,
+        "sustain": 1,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 1,
+        "poke": 0,
+        "mobility": 3
+      },
+      "route": "weapon",
+      "tags": [
+        "dive",
+        "mobility",
+        "melee",
+        "isolation"
+      ],
+      "plan": "Stalker's Mark 贴近落单敌人，Eternal Night 制造孤立后接 Rend",
+      "strength": "抓单与后排刺杀",
+      "tradeoff": "正面范围伤害和保护较弱",
+      "capabilities": {
+        "engage": 2,
+        "escape": 2,
+        "cleanseTarget": 2
+      }
+    },
+    "dynamo": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 2,
+        "burst": 1,
+        "aoe": 2,
+        "teamControl": 3,
+        "frontline": 2,
+        "sustain": 3,
+        "save": 3,
+        "engage": 3,
+        "tempo": 2,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 1
+      },
+      "route": "support",
+      "tags": [
+        "healing",
+        "channel",
+        "hardControl",
+        "save"
+      ],
+      "plan": "Kinetic Pulse 先手，Quantum Entanglement 带队友躲爆发，Singularity 接范围输出",
+      "strength": "团控、救人和团队续航",
+      "tradeoff": "独立收割和持续武器输出较弱",
+      "capabilities": {
+        "interrupt": 1,
+        "setup": 1,
+        "save": 2,
+        "group": 4,
+        "channel": 4
+      }
+    },
+    "graves": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 3,
+        "teamControl": 1,
+        "frontline": 1,
+        "sustain": 1,
+        "save": 0,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 2,
+        "mobility": 0
+      },
+      "route": "spirit",
+      "tags": [
+        "summons",
+        "root",
+        "aoe",
+        "nonUltDebuff"
+      ],
+      "plan": "Grasping Hands 限制走位，让 Jar of Dead 和 Borrowed Decree 持续压线推塔",
+      "strength": "持续元灵输出与兵线压力",
+      "tradeoff": "撤退机动和即时救人较弱",
+      "capabilities": {
+        "setup": 2,
+        "area": 4,
+        "cleanseTarget": 2
+      }
+    },
+    "grey_talon": {
+      "dimensions": {
+        "weapon": 2,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 2,
+        "frontline": 0,
+        "sustain": 1,
+        "save": 0,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 2,
+        "poke": 3,
+        "mobility": 2
+      },
+      "route": "spirit",
+      "tags": [
+        "airborne",
+        "poke",
+        "burst",
+        "curse"
+      ],
+      "plan": "Spirit Snare 封入口，Charged Shot 接 Guided Owl 远程补伤害",
+      "strength": "远程元灵爆发与区域威慑",
+      "tradeoff": "近身承伤和救人较弱",
+      "capabilities": {
+        "interrupt": 3,
+        "setup": 3,
+        "group": 4,
+        "flight": 2
+      },
+      "interruptNote": "布好 Spirit Snare 或用 Charged Shot 引爆陷阱，打断"
+    },
+    "haze": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 1,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 0,
+        "sustain": 0,
+        "save": 0,
+        "engage": 1,
+        "tempo": 1,
+        "scaling": 3,
+        "clear": 1,
+        "poke": 1,
+        "mobility": 2
+      },
+      "route": "weapon",
+      "tags": [
+        "gunBurst",
+        "gunCarry",
+        "mobility",
+        "nonUltDebuff"
+      ],
+      "plan": "Sleep Dagger 创造先手射击时间，Fixation 连续叠层，Bullet Dance 收尾",
+      "strength": "持续武器输出和收割",
+      "tradeoff": "团战先手与前排能力较弱",
+      "capabilities": {
+        "setup": 1,
+        "escape": 2,
+        "cleanseTarget": 3
+      }
+    },
+    "holliday": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 1,
+        "sustain": 0,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 2,
+        "mobility": 3
+      },
+      "route": "weapon",
+      "tags": [
+        "mobility",
+        "catch",
+        "burst",
+        "hardControl"
+      ],
+      "plan": "Powder Keg 与 Bounce Pad 打出浮空，Crackshot 爆头，Spirit Lasso 拉走关键人",
+      "strength": "机动抓人与爆头爆发",
+      "tradeoff": "治疗和正面承伤较弱",
+      "capabilities": {
+        "interrupt": 1,
+        "setup": 4,
+        "engage": 4
+      }
+    },
+    "infernus": {
+      "dimensions": {
+        "weapon": 2,
+        "spirit": 3,
+        "burst": 1,
+        "aoe": 2,
+        "teamControl": 2,
+        "frontline": 2,
+        "sustain": 2,
+        "save": 0,
+        "engage": 2,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "hybrid",
+      "tags": [
+        "healing",
+        "spiritDot",
+        "dive",
+        "nonUltDebuff"
+      ],
+      "plan": "持续射击叠 Afterburn，Flame Dash 封退路，Concussive Combustion 进场接团",
+      "strength": "持续元灵输出与追击",
+      "tradeoff": "瞬间爆发和远程硬控较弱",
+      "capabilities": {
+        "interrupt": 4,
+        "group": 4,
+        "engage": 2,
+        "cleanseTarget": 3
+      },
+      "interruptNote": "提前启动 Concussive Combustion，等爆炸眩晕打断"
+    },
+    "ivy": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 1,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 1,
+        "sustain": 2,
+        "save": 1,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "weapon",
+      "tags": [
+        "healing",
+        "save",
+        "hardControl"
+      ],
+      "plan": "Kudzu Connection 连接主输出，Entangling Thorns 封走位，Stone Form 接近身敌人",
+      "strength": "强化武器核心与协同转线",
+      "tradeoff": "远距离先手抓人较弱",
+      "capabilities": {
+        "interrupt": 3,
+        "setup": 3,
+        "rotation": 4
+      }
+    },
+    "kelvin": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 1,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 2,
+        "sustain": 3,
+        "save": 2,
+        "engage": 1,
+        "tempo": 3,
+        "scaling": 1,
+        "clear": 3,
+        "poke": 2,
+        "mobility": 3
+      },
+      "route": "support",
+      "tags": [
+        "healing",
+        "slow",
+        "fireRateSlow",
+        "isolation"
+      ],
+      "plan": "Arctic Beam 压射速追击，Frost Grenade 保队友，Frozen Shelter 隔开前后排",
+      "strength": "团队续航、风筝和快速转线",
+      "tradeoff": "缺少瞬间定点留人",
+      "capabilities": {
+        "save": 4,
+        "area": 4,
+        "rotation": 2
+      }
+    },
+    "lady_geist": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 3,
+        "teamControl": 0,
+        "frontline": 2,
+        "sustain": 2,
+        "save": 0,
+        "engage": 0,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 3,
+        "mobility": 0
+      },
+      "route": "spirit",
+      "tags": [
+        "healing",
+        "spiritBurst",
+        "aoe",
+        "nonUltDebuff"
+      ],
+      "plan": "Essence Bomb 压区域，Malice 叠伤害，低血量时靠 Soul Exchange 反打",
+      "strength": "范围元灵爆发和近身反打",
+      "tradeoff": "机动转线和主动开团较弱",
+      "capabilities": {
+        "area": 1,
+        "cleanseTarget": 3
+      }
+    },
+    "lash": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 3,
+        "teamControl": 3,
+        "frontline": 1,
+        "sustain": 2,
+        "save": 0,
+        "engage": 3,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "spirit",
+      "tags": [
+        "healing",
+        "dive",
+        "mobility",
+        "hardControl"
+      ],
+      "plan": "Grapple 抢高度，Ground Strike 接 Flog，Death Slam 把多人摔进队友火力",
+      "strength": "群体先手和游走节奏",
+      "tradeoff": "持续武器输出与驻点承伤较弱",
+      "capabilities": {
+        "interrupt": 4,
+        "setup": 4,
+        "group": 4,
+        "engage": 2
+      }
+    },
+    "mcginnis": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 3,
+        "teamControl": 0,
+        "frontline": 1,
+        "sustain": 3,
+        "save": 1,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 2,
+        "mobility": 0
+      },
+      "route": "spirit",
+      "tags": [
+        "healing",
+        "summons",
+        "channel",
+        "aoe"
+      ],
+      "plan": "Mini Turret 建立阵地，Spectral Wall 切割目标，Medicinal Specter 支撑推进",
+      "strength": "阵地输出、清线与推进续航",
+      "tradeoff": "快速转线和遭遇战机动较弱",
+      "capabilities": {
+        "area": 3,
+        "save": 2,
+        "channel": 4
+      }
+    },
+    "mina": {
+      "dimensions": {
+        "weapon": 2,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 0,
+        "sustain": 1,
+        "save": 0,
+        "engage": 2,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "hybrid",
+      "tags": [
+        "mobility",
+        "spiritBurst",
+        "silence"
+      ],
+      "plan": "Sanguine Retreat 换角度，射击与技能交替触发 Love Bites，Nox Nostra 压技能",
+      "strength": "机动混合输出和沉默压制",
+      "tradeoff": "前排承伤与稳定留人较弱",
+      "capabilities": {
+        "escape": 2,
+        "castDenial": 4
+      }
+    },
+    "mirage": {
+      "dimensions": {
+        "weapon": 2,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 1,
+        "teamControl": 1,
+        "frontline": 1,
+        "sustain": 1,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 3,
+        "clear": 2,
+        "poke": 2,
+        "mobility": 3
+      },
+      "route": "hybrid",
+      "tags": [
+        "mobility",
+        "spiritBurst",
+        "nonUltDebuff"
+      ],
+      "plan": "Djinn's Mark 轮转标记消耗，Dust Devil 留人，Traveler 快速支援边路",
+      "strength": "全图支援与标记消耗",
+      "tradeoff": "大范围团控和即时救人较弱",
+      "capabilities": {
+        "interrupt": 2,
+        "setup": 2,
+        "rotation": 4,
+        "cleanseTarget": 3
+      }
+    },
+    "mo_and_krill": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 2,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 3,
+        "sustain": 3,
+        "save": 0,
+        "engage": 3,
+        "tempo": 3,
+        "scaling": 1,
+        "clear": 2,
+        "poke": 0,
+        "mobility": 3
+      },
+      "route": "frontline",
+      "tags": [
+        "healing",
+        "channel",
+        "dive",
+        "disarm",
+        "hardControl"
+      ],
+      "plan": "Burrow 绕后，Sand Blast 限制射击，Combo 锁住核心让队友集火",
+      "strength": "定点抓人与抗压前排",
+      "tradeoff": "远程输出较弱，Combo 占用行动",
+      "capabilities": {
+        "interrupt": 4,
+        "setup": 4,
+        "engage": 2,
+        "disarm": 3,
+        "channel": 4
+      }
+    },
+    "paige": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 2,
+        "burst": 1,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 1,
+        "sustain": 2,
+        "save": 3,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 2,
+        "mobility": 1
+      },
+      "route": "support",
+      "tags": [
+        "root",
+        "shield",
+        "save"
+      ],
+      "plan": "Plot Armor 保住武器核心并增伤，Captivating Read 定身，Bookwyrm 补范围伤害",
+      "strength": "保护、武器增益和双人配合",
+      "tradeoff": "单人持续输出和追击较弱",
+      "capabilities": {
+        "setup": 3,
+        "save": 2,
+        "weaponBuff": 2
+      }
+    },
+    "paradox": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 0,
+        "sustain": 0,
+        "save": 1,
+        "engage": 3,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 3,
+        "mobility": 1
+      },
+      "route": "weapon",
+      "tags": [
+        "catch",
+        "burst",
+        "timeStop"
+      ],
+      "plan": "Kinetic Carbine 定住目标，Paradoxical Swap 换进队友阵地，Time Wall 保护射击角度",
+      "strength": "远程抓人和队友集火",
+      "tradeoff": "续航和前排承伤较弱",
+      "capabilities": {
+        "interrupt": 3,
+        "setup": 3,
+        "engage": 4,
+        "save": 2
+      }
+    },
+    "pocket": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 3,
+        "teamControl": 0,
+        "frontline": 0,
+        "sustain": 0,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 3,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "spirit",
+      "tags": [
+        "dive",
+        "mobility",
+        "ultimateDot",
+        "aoe"
+      ],
+      "plan": "Barrage 叠增伤，Flying Cloak 进退，Affliction 覆盖多人后用 Satchel 躲反打",
+      "strength": "后排扰乱与范围持续伤害",
+      "tradeoff": "稳定留人和正面承伤较弱",
+      "capabilities": {
+        "escape": 3,
+        "engage": 2,
+        "area": 4
+      }
+    },
+    "rem": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 2,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 3,
+        "frontline": 0,
+        "sustain": 3,
+        "save": 3,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 2,
+        "clear": 1,
+        "poke": 1,
+        "mobility": 2
+      },
+      "route": "support",
+      "tags": [
+        "healing",
+        "channel",
+        "mobilityLock",
+        "sleep",
+        "save"
+      ],
+      "plan": "Tag Along 跟随核心治疗，Pillow Toss 推开追兵，Naptime 限制多人移动后催眠",
+      "strength": "贴身保护与群体留人",
+      "tradeoff": "独立清线和正面承伤较弱",
+      "capabilities": {
+        "setup": 4,
+        "save": 2,
+        "group": 4,
+        "channel": 4
+      }
+    },
+    "seven": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 3,
+        "teamControl": 2,
+        "frontline": 1,
+        "sustain": 0,
+        "save": 0,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 2,
+        "mobility": 1
+      },
+      "route": "spirit",
+      "tags": [
+        "channel",
+        "aoe",
+        "spiritDot",
+        "hardControl"
+      ],
+      "plan": "Static Charge 定住目标，Lightning Ball 封路，Power Surge 清群，Storm Cloud 接队友团控",
+      "strength": "范围元灵输出与清线发育",
+      "tradeoff": "即时救人和脱身较弱",
+      "capabilities": {
+        "interrupt": 2,
+        "setup": 2,
+        "area": 4,
+        "channel": 4,
+        "cleanseTarget": 2
+      },
+      "interruptNote": "提前挂 Static Charge，利用延迟眩晕打断"
+    },
+    "shiv": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 3,
+        "sustain": 1,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 2
+      },
+      "route": "frontline",
+      "tags": [
+        "dive",
+        "melee",
+        "spiritDot",
+        "execute",
+        "nonUltDebuff"
+      ],
+      "plan": "Serrated Knives 叠流血，Slice and Dice 反复换血，Killing Blow 收割低血目标",
+      "strength": "持续近战施压与斩杀",
+      "tradeoff": "团队保护和控制较弱",
+      "capabilities": {
+        "engage": 2,
+        "cleanseTarget": 1
+      }
+    },
+    "silver": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 2,
+        "sustain": 1,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "weapon",
+      "tags": [
+        "gunCarry",
+        "melee",
+        "mobilityLock",
+        "dive"
+      ],
+      "plan": "Entangling Bola 限制位移与耐力，Slam Fire 爆发，Lycan Curse 贴身追杀",
+      "strength": "限制机动核心并持续压枪",
+      "tradeoff": "群控和队友保护较弱",
+      "capabilities": {
+        "setup": 3,
+        "engage": 2,
+        "cleanseTarget": 3
+      }
+    },
+    "sinclair": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 0,
+        "sustain": 0,
+        "save": 0,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 2,
+        "poke": 3,
+        "mobility": 2
+      },
+      "route": "spirit",
+      "tags": [
+        "spiritBurst",
+        "hex",
+        "mobility"
+      ],
+      "plan": "Spectral Assistant 换位拉角度，Vexing Bolt 双重消耗，Rabbit Hex 为集火创造窗口",
+      "strength": "远程元灵消耗与大招复制",
+      "tradeoff": "承伤和团队续航较弱",
+      "capabilities": {
+        "setup": 3,
+        "escape": 2
+      }
+    },
+    "venator": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 1,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 1,
+        "sustain": 0,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 2,
+        "mobility": 1
+      },
+      "route": "weapon",
+      "tags": [
+        "gunBurst",
+        "healingReduction",
+        "root",
+        "hardControl"
+      ],
+      "plan": "Hex-Lined Snap Trap 限制走位，Gutshot 接墙控，Ira Domini 追击低血目标",
+      "strength": "武器爆发与压治疗",
+      "tradeoff": "机动撤离和持续团队续航较弱",
+      "capabilities": {
+        "interrupt": 2,
+        "setup": 3,
+        "antiheal": 1
+      }
+    },
+    "victor": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 1,
+        "aoe": 3,
+        "teamControl": 1,
+        "frontline": 3,
+        "sustain": 3,
+        "save": 0,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 0,
+        "mobility": 1
+      },
+      "route": "frontline",
+      "tags": [
+        "healing",
+        "spiritDot",
+        "aoe"
+      ],
+      "plan": "Jumpstart 提速顶入，Aura of Suffering 贴身磨血，Pain Battery 反打集火",
+      "strength": "承伤和近身持续范围伤害",
+      "tradeoff": "远程留人及转线机动较弱",
+      "capabilities": {
+        "area": 3,
+        "punish": 4
+      }
+    },
+    "vindicta": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 3,
+        "aoe": 1,
+        "teamControl": 0,
+        "frontline": 0,
+        "sustain": 0,
+        "save": 0,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 1,
+        "poke": 3,
+        "mobility": 2
+      },
+      "route": "weapon",
+      "tags": [
+        "gunCarry",
+        "airborne",
+        "burst"
+      ],
+      "plan": "Stake 限制逃跑，Flight 保持射击角度，Crow Familiar 压血后 Assassinate 收割",
+      "strength": "远距离武器输出与收割",
+      "tradeoff": "正面承伤和范围清线较弱",
+      "capabilities": {
+        "setup": 1,
+        "flight": 2,
+        "antiheal": 3
+      }
+    },
+    "viscous": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 2,
+        "frontline": 2,
+        "sustain": 2,
+        "save": 3,
+        "engage": 2,
+        "tempo": 2,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 2,
+        "mobility": 2
+      },
+      "route": "support",
+      "tags": [
+        "healing",
+        "save",
+        "melee",
+        "hardControl"
+      ],
+      "plan": "The Cube 保住被抓队友，Puddle Punch 调整站位，Goo Ball 反复打断追击",
+      "strength": "救人、反开和空间控制",
+      "tradeoff": "持续武器输出较弱",
+      "capabilities": {
+        "interrupt": 4,
+        "setup": 3,
+        "save": 2,
+        "group": 4
+      }
+    },
+    "vyper": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 0,
+        "sustain": 0,
+        "save": 0,
+        "engage": 2,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "weapon",
+      "tags": [
+        "gunCarry",
+        "mobility",
+        "nonUltDebuff"
+      ],
+      "plan": "Screwjab Dagger 叠减甲，滑铲保持射击，Lethal Venom 收尾，Petrifying Bola 分割战场",
+      "strength": "机动武器输出与单点收割",
+      "tradeoff": "承伤和队友保护较弱",
+      "capabilities": {
+        "escape": 3,
+        "cleanseTarget": 2,
+        "isolate": 4
+      }
+    },
+    "warden": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 3,
+        "sustain": 2,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 2
+      },
+      "route": "weapon",
+      "tags": [
+        "gunCarry",
+        "healing",
+        "root",
+        "channel"
+      ],
+      "plan": "Alchemical Flask 压输出，Binding Word 逼走位，Willpower 接近后 Last Stand 顶住团战",
+      "strength": "前排压枪与持续接战",
+      "tradeoff": "远程瞬时抓人较弱",
+      "capabilities": {
+        "setup": 3,
+        "engage": 2,
+        "channel": 4,
+        "cleanseTarget": 3
+      }
+    },
+    "wraith": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 3,
+        "aoe": 1,
+        "teamControl": 1,
+        "frontline": 0,
+        "sustain": 0,
+        "save": 0,
+        "engage": 2,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 3
+      },
+      "route": "weapon",
+      "tags": [
+        "gunCarry",
+        "gunBurst",
+        "mobility",
+        "hardControl"
+      ],
+      "plan": "Telekinesis 锁住目标，Full Auto 配合 Card Trick 集火，Project Mind 留作脱身",
+      "strength": "持续武器输出与定点集火",
+      "tradeoff": "范围伤害和前排承伤较弱",
+      "capabilities": {
+        "interrupt": 4,
+        "setup": 4,
+        "escape": 2
+      }
+    },
+    "yamato": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 2,
+        "sustain": 2,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 2,
+        "mobility": 2
+      },
+      "route": "spirit",
+      "tags": [
+        "healing",
+        "dive",
+        "melee",
+        "spiritBurst"
+      ],
+      "plan": "Power Slash 消耗，Flying Slash 贴近，Crimson Slash 回血，Shadow Transformation 刷新技能继续打",
+      "strength": "持续切入与元灵爆发",
+      "tradeoff": "稳定控制和保护较弱",
+      "capabilities": {
+        "engage": 2,
+        "escape": 4
+      }
+    },
+    "rat_king": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 2,
+        "aoe": 2,
+        "teamControl": 0,
+        "frontline": 3,
+        "sustain": 0,
+        "save": 2,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 1,
+        "mobility": 1
+      },
+      "route": "weapon",
+      "tags": [
+        "gunCarry",
+        "shield",
+        "summons"
+      ],
+      "plan": "Scrap Grenade 压入口，Rat Swarm 叠减甲，Royal Pestments 扛枪，旗帜带队推进",
+      "strength": "前排武器输出与团队推进",
+      "tradeoff": "硬控和即时回血较弱",
+      "capabilities": {
+        "weaponAmp": 2,
+        "save": 4
+      }
+    },
+    "baba": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 3,
+        "teamControl": 2,
+        "frontline": 1,
+        "sustain": 0,
+        "save": 1,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 2,
+        "mobility": 2
+      },
+      "route": "spirit",
+      "tags": [
+        "spiritBurst",
+        "hex",
+        "silence"
+      ],
+      "plan": "Threadsap 偷元灵，Baba's Brew 按需给盾或沉默，Feed The Birds 覆盖多人",
+      "strength": "元灵对抗和范围压制",
+      "tradeoff": "硬控依赖施法窗口",
+      "capabilities": {
+        "setup": 4,
+        "save": 3,
+        "group": 4,
+        "channel": 4
+      }
+    },
+    "nurse_harrow": {
+      "dimensions": {
+        "weapon": 2,
+        "spirit": 2,
+        "burst": 1,
+        "aoe": 2,
+        "teamControl": 2,
+        "frontline": 1,
+        "sustain": 3,
+        "save": 3,
+        "engage": 0,
+        "tempo": 2,
+        "scaling": 2,
+        "clear": 1,
+        "poke": 2,
+        "mobility": 1
+      },
+      "route": "support",
+      "tags": [
+        "healing",
+        "channel",
+        "fear",
+        "save"
+      ],
+      "plan": "Healing Needles 治疗前排，Wretched Vapors 帮核心抢输出窗口，随后用治疗消掉延迟伤害；Lurking Terrors 驱离贴脸敌人",
+      "strength": "强治疗与核心保护",
+      "tradeoff": "单人清线和主动追击较弱",
+      "capabilities": {
+        "save": 2,
+        "group": 4,
+        "channel": 4
+      }
+    },
+    "violet": {
+      "dimensions": {
+        "weapon": 2,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 3,
+        "teamControl": 1,
+        "frontline": 0,
+        "sustain": 1,
+        "save": 1,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 2,
+        "mobility": 2
+      },
+      "route": "hybrid",
+      "tags": [
+        "spiritBurst",
+        "silence",
+        "hardControl"
+      ],
+      "plan": "Living Ink 转弯射击并筑墙，Flow State 清线，Still Life 留人，Abstract Landscape 强化己方元灵输出",
+      "strength": "元灵阵地与墙体控制",
+      "tradeoff": "正面承伤和稳定治疗较弱",
+      "capabilities": {
+        "interrupt": 3,
+        "setup": 3,
+        "save": 1,
+        "spiritBuff": 4
+      }
+    },
+    "deadman_danny": {
+      "dimensions": {
+        "weapon": 3,
+        "spirit": 2,
+        "burst": 3,
+        "aoe": 2,
+        "teamControl": 1,
+        "frontline": 0,
+        "sustain": 1,
+        "save": 0,
+        "engage": 2,
+        "tempo": 3,
+        "scaling": 2,
+        "clear": 2,
+        "poke": 2,
+        "mobility": 3
+      },
+      "route": "weapon",
+      "tags": [
+        "airborne",
+        "gunCarry",
+        "dive"
+      ],
+      "plan": "Strix Salvo 标记目标后蓄力射击，Chimera Mk1 找角度，Close The Deal 抓走关键人",
+      "strength": "空中侧翼输出与单点切入",
+      "tradeoff": "地面承伤和长时间站桩较弱",
+      "capabilities": {
+        "setup": 4,
+        "engage": 4,
+        "flight": 2
+      }
+    },
+    "solomon": {
+      "dimensions": {
+        "weapon": 1,
+        "spirit": 3,
+        "burst": 2,
+        "aoe": 3,
+        "teamControl": 2,
+        "frontline": 1,
+        "sustain": 0,
+        "save": 3,
+        "engage": 1,
+        "tempo": 2,
+        "scaling": 3,
+        "clear": 3,
+        "poke": 2,
+        "mobility": 1
+      },
+      "route": "support",
+      "tags": [
+        "root",
+        "aoe",
+        "save"
+      ],
+      "plan": "Setup Bishop 封区域，Rook Battery 定身，Kingside Knight 救队友，Develop Queen 接连压位置",
+      "strength": "区域控制与队友保护",
+      "tradeoff": "追击机动和即时治疗较弱",
+      "capabilities": {
+        "interrupt": 4,
+        "setup": 3,
+        "save": 2,
+        "group": 4
+      }
+    }
+  }
+}

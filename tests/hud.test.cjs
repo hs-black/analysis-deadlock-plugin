@@ -13,7 +13,7 @@ function harness(unlocked=[]){
  const a=['Haze','Wraith','Vindicta','Seven','Infernus','McGinnis'],b=['Abrams','Mo & Krill','Kelvin','Lash','Bebop','Dynamo'];
  const rows=[];[a,b].forEach((team,n)=>{const t=new Panel('CitadelHudTopBarTeam',top,n?'TeamEnemy':'TeamFriendly'),container=new Panel('Panel',t,'PlayersContainer');rows[n]=team.map(id=>{const p=new Panel('CitadelHudTopBarPlayer',container,''),l=new Panel('Label',p,'');l.AddClass('HeroNameHidden');l.text=id;return l;});});
  const ctx=vm.createContext({QOL:{core:{FeatureRegistry:{register:m=>manifest=m}}},$:{GetContextPanel:()=>root,CreatePanel:(t,p,id)=>new Panel(t,p,id),Schedule:(s,f)=>queue.push(f),Msg:t=>logs.push(t),DispatchEvent:()=>{}}});
- for(const f of ['data','stats-data','statistics','profile','engine','hud'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/'+f+'.js'),'utf8'),ctx);
+ for(const f of ['data','stats-data','statistics','knowledge-data','planner','profile','engine','hud'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../src/'+f+'.js'),'utf8'),ctx);
  ctx.RankAdvisorProfile.unlocked=unlocked;
  const inst=manifest.create();inst.onEnable();return {root,rows,queue,logs,inst,step:()=>queue.shift()?.(),texts:()=>{const walk=p=>[p.text,...p.children.flatMap(walk)];const box=root.FindChildTraverse('RankAdvisor');return box?walk(box).filter(Boolean).join('\n'):'';}};
 }
@@ -25,11 +25,11 @@ test('HUD reads native-shape panels, locks enemy, updates allies, resets in hide
  h.inst.onDisable();h.step();assert.equal(h.queue.length,0);assert.equal(h.root.FindChildTraverse('RankAdvisor'),null);assert.deepEqual(h.logs,[]);
 });
 
-test('HUD reports missing guns, shows swap reasons and resets manual gun roles',()=>{
+test('HUD shows concrete swaps, lanes and build controls without evidence clutter',()=>{
  const h=harness(['haze','wraith','vindicta']);
  ['Celeste','Paige','Graves','Viscous','Apollo','The Doorman'].forEach((name,i)=>h.rows[0][i].text=name);h.step();
  const click=text=>{const walk=p=>[p,...p.children.flatMap(walk)];const b=walk(h.root).find(p=>p.paneltype==='Button'&&p.children.some(c=>c.text===text));assert.ok(b,'button '+text);b.events.onactivate();h.step();};
- click('Celeste');assert.ok(h.texts().includes('己方 6/6'));assert.ok(h.texts().includes('枪位：0 人'));assert.ok(h.texts().includes('补足枪位'));
- click('Graves · 自动');assert.ok(h.texts().includes('枪位：1 人'));assert.ok(!h.texts().includes('补足枪位'));
- click('下一局重置');assert.ok(h.texts().includes('枪位：0 人'));assert.deepEqual(h.logs,[]);h.inst.onDisable();
+ click('Celeste');assert.ok(h.texts().includes('首选换成'));assert.ok(h.texts().includes('补持续武器输出'));assert.ok(h.texts().includes('当前阵容 · 分路搭配'));assert.ok(!h.texts().includes('95%'));assert.ok(!h.texts().includes('不能据此推断'));
+ click('Graves · 常见');assert.ok(h.texts().includes('Graves · 武器'));assert.ok(!h.texts().includes('补持续武器输出'));
+ click('下一局重置');assert.ok(h.texts().includes('Graves · 常见'));click('Celeste');assert.ok(h.texts().includes('补持续武器输出'));assert.deepEqual(h.logs,[]);h.inst.onDisable();
 });

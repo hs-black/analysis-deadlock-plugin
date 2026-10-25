@@ -12,7 +12,8 @@
       "max_unix_timestamp": 1792956293,
       "same_lane_filter": false
     },
-    "minimumSamples": 100,
+    "minimumSamples": 30,
+    "minimumOverallSamples": 100,
     "patch": null
   },
   "heroes": [

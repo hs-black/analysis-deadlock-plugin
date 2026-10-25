@@ -1,0 +1,420 @@
+[
+  {
+    "name": "Healbane",
+    "purpose": "antiheal",
+    "tags": [
+      "healing"
+    ],
+    "weight": 4.8,
+    "route": "spirit",
+    "effect": "用元灵伤害保持重伤，压低对方治疗和吸血",
+    "timing": "持续伤害路线优先；用能触发装备效果的技能续上重伤"
+  },
+  {
+    "name": "Toxic Bullets",
+    "purpose": "antiheal",
+    "tags": [
+      "healing",
+      "frontline"
+    ],
+    "weight": 4.7,
+    "route": "weapon",
+    "effect": "持续射击叠流血，同时压治疗并按最大生命值磨血",
+    "timing": "先持续命中前排；目标脱离射程时重选集火对象"
+  },
+  {
+    "name": "Decay",
+    "purpose": "antiheal",
+    "tags": [
+      "healing",
+      "frontline"
+    ],
+    "weight": 4.2,
+    "route": "any",
+    "effect": "主动挂重伤与按当前生命值的持续伤害",
+    "timing": "交战开始先挂给正在承伤回血的前排"
+  },
+  {
+    "name": "Crippling Headshot",
+    "purpose": "antiheal",
+    "tags": [
+      "healing",
+      "frontline"
+    ],
+    "weight": 3.8,
+    "route": "weapon",
+    "effect": "爆头同时削减双抗和治疗，让队友一起打穿前排",
+    "timing": "能稳定爆头时再投入"
+  },
+  {
+    "name": "Spirit Burn",
+    "purpose": "antiheal",
+    "tags": [
+      "healing",
+      "frontline"
+    ],
+    "weight": 3.8,
+    "route": "spirit",
+    "effect": "元灵爆发触发燃烧和重伤，增强压血与收割",
+    "timing": "留在主要输出装成型后购买"
+  },
+  {
+    "name": "Metal Skin",
+    "purpose": "gunDefense",
+    "tags": [
+      "gunCarry",
+      "gunBurst"
+    ],
+    "weight": 4.5,
+    "route": "any",
+    "effect": "用子弹免疫撑过对方集中开火窗口",
+    "timing": "等对方交出武器爆发再开，期间换掩体或反打"
+  },
+  {
+    "name": "Bullet Resilience",
+    "purpose": "gunDefense",
+    "tags": [
+      "gunCarry",
+      "gunBurst"
+    ],
+    "weight": 3.7,
+    "route": "any",
+    "effect": "持续子弹抗性提高正面换枪容错",
+    "timing": "需要反复接战和顶前排时选择"
+  },
+  {
+    "name": "Plated Armor",
+    "purpose": "gunDefense",
+    "tags": [
+      "gunCarry",
+      "gunBurst"
+    ],
+    "weight": 3.8,
+    "route": "any",
+    "effect": "偏转子弹，并有机会阻止子弹附带效果",
+    "timing": "针对依赖连续射击叠层的后期核心"
+  },
+  {
+    "name": "Spirit Resilience",
+    "purpose": "spiritDefense",
+    "tags": [
+      "spiritPressure",
+      "spiritDot"
+    ],
+    "weight": 4.0,
+    "route": "any",
+    "effect": "提升元灵抗性，低血量时进一步减伤",
+    "timing": "对方技能和持续元灵伤害占主导时优先"
+  },
+  {
+    "name": "Spirit Shielding",
+    "purpose": "spiritDefense",
+    "tags": [
+      "spiritBurst"
+    ],
+    "weight": 4.1,
+    "route": "any",
+    "effect": "受到一轮集中元灵伤害后获得护盾",
+    "timing": "中期经常被技能连招压血时购买"
+  },
+  {
+    "name": "Spellbreaker",
+    "purpose": "spiritDefense",
+    "tags": [
+      "spiritBurst"
+    ],
+    "weight": 3.8,
+    "route": "any",
+    "effect": "削减下一次高额元灵伤害，并提供元灵与减益抗性",
+    "timing": "面对单次高伤技能时留好触发窗口"
+  },
+  {
+    "name": "Reactive Barrier",
+    "purpose": "controlDefense",
+    "tags": [
+      "hardControl",
+      "root",
+      "silence",
+      "sleep"
+    ],
+    "weight": 4.4,
+    "route": "any",
+    "effect": "被眩晕、锁链、定身、催眠或沉默命中后获得护盾",
+    "timing": "对线先补，撑住控制后的第一轮集火"
+  },
+  {
+    "name": "Unstoppable",
+    "purpose": "controlDefense",
+    "tags": [
+      "hardControl",
+      "root",
+      "silence",
+      "sleep",
+      "fear"
+    ],
+    "weight": 4.4,
+    "route": "commit",
+    "effect": "开启免控，让关键输出或开团动作完整打完",
+    "timing": "在冲进控制范围或开始持续施法前开启"
+  },
+  {
+    "name": "Indomitable",
+    "purpose": "controlDefense",
+    "tags": [
+      "hardControl",
+      "root",
+      "silence",
+      "sleep",
+      "fear"
+    ],
+    "weight": 4.0,
+    "route": "any",
+    "effect": "自动清除下一次指定控制，获得护盾并缩减技能冷却",
+    "timing": "对方靠一次先手接连控时，留作防抓装备"
+  },
+  {
+    "name": "Dispel Magic",
+    "purpose": "cleanse",
+    "tags": [
+      "nonUltDebuff"
+    ],
+    "weight": 4.9,
+    "route": "any",
+    "effect": "移除已挂上的非终极技能负面效果，同时回血提速",
+    "timing": "在延迟伤害或控制生效前使用；眩晕和催眠时无法使用"
+  },
+  {
+    "name": "Divine Barrier",
+    "purpose": "teamSave",
+    "tags": [
+      "ultimateDot",
+      "nonUltDebuff"
+    ],
+    "weight": 4.2,
+    "route": "support",
+    "effect": "移除目标的非眩晕负面效果并给护盾、移速",
+    "timing": "给被持续伤害压住的队友解围"
+  },
+  {
+    "name": "Knockdown",
+    "purpose": "interrupt",
+    "tags": [
+      "channel",
+      "airborne"
+    ],
+    "weight": 4.7,
+    "route": "any",
+    "effect": "延迟眩晕打断持续施法，并把空中目标压落",
+    "timing": "提前施放，队友在眩晕落下时一起跟伤害"
+  },
+  {
+    "name": "Cursed Relic",
+    "purpose": "interrupt",
+    "tags": [
+      "channel",
+      "save",
+      "gunBurst"
+    ],
+    "weight": 4.6,
+    "route": "support",
+    "effect": "立即打断并限制施法、射击与装备使用，移除非终极增益",
+    "timing": "优先由功能位购买，在队友准备集火时交出"
+  },
+  {
+    "name": "Silence Wave",
+    "purpose": "castDenial",
+    "tags": [
+      "save",
+      "mobility"
+    ],
+    "weight": 4.1,
+    "route": "any",
+    "effect": "提前沉默，封住保护技能与逃生技能",
+    "timing": "在目标交保护或位移前施放"
+  },
+  {
+    "name": "Slowing Hex",
+    "purpose": "catch",
+    "tags": [
+      "mobility",
+      "airborne"
+    ],
+    "weight": 4.3,
+    "route": "any",
+    "effect": "减速并封锁位移类技能与装备，增加目标重力",
+    "timing": "先封逃生，再接己方留人技能"
+  },
+  {
+    "name": "Disarming Hex",
+    "purpose": "weaponSuppression",
+    "tags": [
+      "gunCarry",
+      "gunBurst"
+    ],
+    "weight": 4.3,
+    "route": "any",
+    "effect": "缴械并削减子弹抗性，阻断射击窗口",
+    "timing": "对方开火力技能时交出，队友同步集火"
+  },
+  {
+    "name": "Rusted Barrel",
+    "purpose": "weaponSuppression",
+    "tags": [
+      "gunCarry",
+      "gunBurst"
+    ],
+    "weight": 3.5,
+    "route": "any",
+    "effect": "降低射速与子弹抗性，改善对线换枪",
+    "timing": "对线先挂目标，再和搭档一起换血"
+  },
+  {
+    "name": "Suppressor",
+    "purpose": "weaponSuppression",
+    "tags": [
+      "gunCarry",
+      "gunBurst"
+    ],
+    "weight": 3.8,
+    "route": "spirit",
+    "effect": "用元灵伤害压低敌人射速",
+    "timing": "持续消耗时保持覆盖"
+  },
+  {
+    "name": "Tankbuster",
+    "purpose": "tankDamage",
+    "tags": [
+      "frontline"
+    ],
+    "weight": 4.2,
+    "route": "spiritBurst",
+    "effect": "让达到触发伤害的技能追加当前生命值伤害，并穿过元灵抗性",
+    "timing": "用单次足够高伤害的技能触发"
+  },
+  {
+    "name": "Siphon Bullets",
+    "purpose": "tankDamage",
+    "tags": [
+      "frontline"
+    ],
+    "weight": 3.8,
+    "route": "weapon",
+    "effect": "连续射击偷取最大生命值，削弱厚血前排",
+    "timing": "适合能持续保持射击的输出路线"
+  },
+  {
+    "name": "Monster Rounds",
+    "purpose": "summonClear",
+    "tags": [
+      "summons"
+    ],
+    "weight": 4.1,
+    "route": "any",
+    "effect": "提高对非玩家单位的武器伤害和承伤效率",
+    "timing": "对线先处理召唤单位，避免兵线一起压进塔"
+  },
+  {
+    "name": "Alchemical Fire",
+    "purpose": "summonClear",
+    "tags": [
+      "summons"
+    ],
+    "weight": 3.8,
+    "route": "any",
+    "effect": "用范围元灵伤害清召唤物，并削减区域内敌人的子弹抗性",
+    "timing": "丢在召唤物与敌方前排重叠的位置"
+  },
+  {
+    "name": "Enduring Speed",
+    "purpose": "mobilityDefense",
+    "tags": [
+      "slow",
+      "fireRateSlow"
+    ],
+    "weight": 3.8,
+    "route": "any",
+    "effect": "补移速和减速抗性，缩短被黏住的时间",
+    "timing": "先脱离减速区域，再回头输出"
+  },
+  {
+    "name": "Rebuttal",
+    "purpose": "meleeDefense",
+    "tags": [
+      "melee"
+    ],
+    "weight": 4.0,
+    "route": "any",
+    "effect": "成功招架后回血反伤，并缩短招架间隔",
+    "timing": "留招架处理重拳，不跟着对方空挥节奏交招架"
+  },
+  {
+    "name": "Counterspell",
+    "purpose": "burstDefense",
+    "tags": [
+      "burst",
+      "spiritBurst"
+    ],
+    "weight": 4.0,
+    "route": "any",
+    "effect": "强化下一次招架，挡住命中的技能或装备伤害与效果",
+    "timing": "对准可读的关键技能出手时机招架"
+  },
+  {
+    "name": "Rescue Beam",
+    "purpose": "teamSave",
+    "tags": [
+      "catch",
+      "dive"
+    ],
+    "weight": 4.2,
+    "route": "support",
+    "effect": "治疗被抓队友，并拉回己方安全站位",
+    "timing": "从侧后方接应，被抓后立即接拉回"
+  },
+  {
+    "name": "Guardian Ward",
+    "purpose": "teamSave",
+    "tags": [
+      "burst",
+      "spiritBurst"
+    ],
+    "weight": 3.8,
+    "route": "support",
+    "effect": "给队友护盾和移速，保护其完成第一轮输出",
+    "timing": "提前给正在接火的输出位"
+  },
+  {
+    "name": "Spirit Sap",
+    "purpose": "magicSuppression",
+    "tags": [
+      "spiritPressure",
+      "spiritBurst"
+    ],
+    "weight": 3.8,
+    "route": "any",
+    "effect": "削减目标元灵强度与元灵抗性，兼顾减伤和集火",
+    "timing": "接战前交给元灵主输出"
+  },
+  {
+    "name": "Spirit Shredder",
+    "purpose": "resistShred",
+    "tags": [
+      "frontline"
+    ],
+    "weight": 3.2,
+    "route": "weapon",
+    "effect": "射击削减元灵抗性，帮助己方元灵输出和吸血",
+    "timing": "己方元灵输出足够时，用射击为他们打开集火窗口"
+  },
+  {
+    "name": "Bullet Resist Shredder",
+    "purpose": "resistShred",
+    "tags": [
+      "frontline"
+    ],
+    "weight": 3.2,
+    "route": "spirit",
+    "effect": "元灵伤害削减子弹抗性，帮助己方武器核心输出",
+    "timing": "己方武器核心开始集火时先挂减甲"
+  }
+]

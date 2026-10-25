@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "kind": "mechanics-heuristic",
   "reviewedPatch": null,
   "catalogSource": "https://api.deadlock-api.com/v1/assets/heroes",
@@ -128,9 +128,6 @@
     {
       "id": "kelvin",
       "name": "Kelvin",
-      "mechanicsNote": "Frost Grenade / Arctic Beam：减速，射线还降低射速；Frozen Shelter：封路隔离。不能据此推断眩晕、定身或打断。",
-      "mechanicsSource": "https://www.deadlock.io/en/heroes/kelvin",
-      "mechanicsCheckedAt": "2026-10-25",
       "apiId": 12,
       "apiActive": true,
       "className": "hero_kelvin",

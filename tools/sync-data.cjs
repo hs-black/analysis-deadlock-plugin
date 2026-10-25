@@ -31,7 +31,7 @@ function normalize(data,assets,raw,filters,now=Date.now()){
  const counters=unique(raw.counters.map(r=>({id:map(r.hero_id),enemy:map(r.enemy_hero_id),...counts(r,'matches_played')})),r=>r.id+'|'+r.enemy);
  const synergies=unique(raw.synergies.map(r=>{const pair=[map(r.hero_id1),map(r.hero_id2)].sort();return {id:pair[0],ally:pair[1],...counts(r,'matches_played')};}),r=>r.id+'|'+r.ally);
  next.catalogSource=SOURCE+'/v1/assets/heroes';next.catalogDate=new Date(now).toISOString().slice(0,10);
- return {data:next,stats:{schemaVersion:1,metadata:{source:SOURCE,fetchedAt:new Date(now).toISOString(),windowStart:new Date(filters.min_unix_timestamp*1000).toISOString(),windowEnd:new Date(filters.max_unix_timestamp*1000).toISOString(),filters:{...filters,same_lane_filter:false},minimumSamples:100,patch:null},heroes,counters,synergies}};
+ return {data:next,stats:{schemaVersion:1,metadata:{source:SOURCE,fetchedAt:new Date(now).toISOString(),windowStart:new Date(filters.min_unix_timestamp*1000).toISOString(),windowEnd:new Date(filters.max_unix_timestamp*1000).toISOString(),filters:{...filters,same_lane_filter:false},minimumSamples:30,minimumOverallSamples:100,patch:null},heroes,counters,synergies}};
 }
 function script(name,value){return '(function(g){var d='+JSON.stringify(value,null,2)+';if(typeof module!=="undefined")module.exports=d;else g.'+name+'=d;})(typeof globalThis!=="undefined"?globalThis:this);\n';}
 async function sync(root,filters,get=async url=>{

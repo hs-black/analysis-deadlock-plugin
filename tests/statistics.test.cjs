@@ -9,7 +9,7 @@ function fixture(){return {schemaVersion:1,metadata:{source:'https://api.deadloc
 test('counter rows preserve direction, include sample intervals, and compare against all six enemies',()=>{
  const r=create(fixture()).analyze(input,['rat_king'],now);a.equal(r.own.coverage,6);a.equal(r.own.counters[0].record.winRate,.5);a.equal(r.recommendations[0].id,'rat_king');a.equal(r.own.synergies[0].record.winRate,.55);
  a.ok(r.own.overall.low<.5&&r.own.overall.high>.5);a.equal(r.winProbability,undefined);a.equal(r.recommendations[0].winRate,undefined);
- a.ok(lines(r,x=>x).some(x=>x.includes('不是胜率提升')));
+ a.ok(lines(r,x=>x).some(x=>x.includes('对阵 abrams：50.0%')));a.ok(!lines(r,x=>x).some(x=>x.includes('统计候选')));
 });
 test('baseline strength alone does not masquerade as a counter advantage',()=>{
  const s=fixture();s.heroes.find(h=>h.id==='rat_king').wins=650;
@@ -29,6 +29,6 @@ test('invalid counts and zero samples never render a percentage',()=>{for(const 
 test('new heroes can be evaluated statistically without invented mechanics and eligibility remains enforced',()=>{
  const s=fixture();s.metadata.fetchedAt=new Date().toISOString();
  const e=engine.create(data,{unlocked:['rat_king']},s),r=e.analyze(input);
- a.equal(data.heroes.find(h=>h.id==='rat_king').traits,null);a.equal(r.decision,'no_supported_candidates');a.equal(r.statistics.recommendations[0].id,'rat_king');
+ a.ok(data.heroes.find(h=>h.id==='rat_king').traits);a.equal(r.recommendations[0].id,'rat_king');a.equal(r.statistics.recommendations[0].id,'rat_king');
  a.deepEqual(e.analyze({...input,available:[]}).statistics.recommendations,[]);
 });

@@ -3,7 +3,7 @@
     var Q=g.QOL;
     if(!Q||!Q.core||!Q.core.FeatureRegistry){$.Msg('[RankAdvisor] QoL FeatureRegistry missing');return;}
     Q.core.FeatureRegistry.register({id:'rank_advisor',enabledByDefault:true,settings:[],create:function(){
-        var root,box,body,settings,status,report,choices,token=0,snapshot,engine,profile,ownSlot=-1,mateSlot=-1,foes=[],manual=null,available=null,last='',topCache=null,wasHideout=false,gunRoles={};
+        var root,box,body,settings,status,report,choices,token=0,snapshot,engine,profile,ownSlot=-1,mateSlot=-1,foes=[],manual=null,available=null,last='',topCache=null,wasHideout=false,gunRoles={},builds={},goal="balanced",lockMate=false,showEvidence=false;
         function valid(p){return p&&p.IsValid&&p.IsValid();}
         function child(p,id){return valid(p)&&p.FindChildTraverse?p.FindChildTraverse(id):null;}
         function label(parent,text,cls){var p=$.CreatePanel('Label',parent,'');p.text=text;p.hittest=false;if(cls)p.AddClass(cls);return p;}
@@ -12,7 +12,7 @@
         function hideout(){var p=root;for(var n=0;valid(p)&&n<8;n++,p=p.GetParent()){
             if(['InHideout','inHideoutIntro','connectedToHideout','connectedtoHideout','connectedtohideout'].some(function(c){return p.BHasClass(c);}))return true;
         }return false;}
-        function reset(){snapshot.reset();gunRoles={};ownSlot=-1;mateSlot=-1;foes=[];manual=null;available=null;last='';topCache=null;}
+        function reset(){snapshot.reset();gunRoles={};builds={};lockMate=false;ownSlot=-1;mateSlot=-1;foes=[];manual=null;available=null;last='';topCache=null;}
         function textByClass(p,cls){var a=p.FindChildrenWithClassTraverse(cls);return a&&a.length?String(a[0].text||'').trim():'';}
         function readTeam(top,id){
             var team=child(top,id),pc=child(team,'PlayersContainer');if(!valid(pc))return [];
@@ -56,7 +56,7 @@
         function render(s){
             status.text=s.locked?'敌方初始阵容已锁定 · '+(manual?'手动输入':'自动读取'):'等待敌方 6 人 · 可在设置中手动输入';
             if(!s.friendly||!s.enemy){last='';clear(choices);clear(report);label(report,'等待完整阵容。进入赛前后打开计分板，或在设置中填入双方英雄。');return;}
-            var input={friendly:s.friendly,enemy:s.enemy,own:engine.resolve(s.friendly[ownSlot]),mate:engine.resolve(s.friendly[mateSlot]),foes:foes.map(function(i){return engine.resolve(s.enemy[i]);}),available:available,gunRoles:gunRoles};
+            var input={friendly:s.friendly,enemy:s.enemy,own:engine.resolve(s.friendly[ownSlot]),mate:engine.resolve(s.friendly[mateSlot]),foes:foes.map(function(i){return engine.resolve(s.enemy[i]);}),available:available,builds:builds,goal:goal,lockMate:lockMate};
             var sig=JSON.stringify([input,profile.unlocked]);if(sig===last)return;last=sig;
             clear(choices);label(choices,'点击自己的英雄；再选择同路队友与敌人','RAMuted');
             var ownRow=$.CreatePanel('Panel',choices,'');ownRow.AddClass('RARow');
@@ -65,31 +65,28 @@
             s.friendly.forEach(function(id,i){if(i!==ownSlot)button(mateRow,(mateSlot===i?'同路 · ':'')+engine.name(engine.resolve(id)||id),function(){mateSlot=mateSlot===i?-1:i;last='';});});
             var enemyRow=$.CreatePanel('Panel',choices,'');enemyRow.AddClass('RARow');
             s.enemy.forEach(function(id,i){button(enemyRow,(foes.indexOf(i)>=0?'对线 · ':'')+engine.name(engine.resolve(id)||id),function(){var k=foes.indexOf(i);if(k>=0)foes.splice(k,1);else if(foes.length<2)foes.push(i);last='';});});
-            label(choices,'枪位职责：点击切换 自动 / 枪位 / 其他','RAMuted');
-            var gunRow=$.CreatePanel('Panel',choices,'');gunRow.AddClass('RARow');
-            s.friendly.forEach(function(raw){var id=engine.resolve(raw)||raw;
-                button(gunRow,engine.name(id)+' · '+(typeof gunRoles[id]!=='boolean'?'自动':gunRoles[id]?'枪位':'其他'),function(){
-                    if(typeof gunRoles[id]!=='boolean')gunRoles[id]=true;else if(gunRoles[id])gunRoles[id]=false;else delete gunRoles[id];last='';
-                });
-            });
+            var goalRow=$.CreatePanel('Panel',choices,'');goalRow.AddClass('RARow');
+            [['balanced','综合补位'],['counter','Counter'],['synergy','队友配合']].forEach(function(v){button(goalRow,(goal===v[0]?'✓ ':'')+v[1],function(){goal=v[0];last='';});});
+            button(goalRow,(lockMate?'✓ ':'')+'固定搭档',function(){lockMate=!lockMate;last='';});
+            label(choices,'出装方向：点击切换','RAMuted');var buildRow=$.CreatePanel('Panel',choices,'');buildRow.AddClass('RARow');
+            s.friendly.forEach(function(raw){var id=engine.resolve(raw)||raw,values=['default','weapon','spirit','support'],names=['常见','武器','元灵','功能'],n=values.indexOf(builds[id]||'default');button(buildRow,engine.name(id)+' · '+names[n],function(){builds[id]=values[(n+1)%values.length];last='';});});
             var r=engine.analyze(input);clear(report);
-            label(report,'阵容倾向','RAHeading');
-            label(report,'手工规则覆盖：己方 '+r.composition.coverage+'/6，敌方 '+r.enemyCoverage+'/6','RAMuted');
-            label(report,r.composition.missing.length?'部分英雄缺少规则，暂不判断整队短板。':r.composition.gaps.length?'偏少：'+r.composition.gaps.map(function(k){return g.RankAdvisorData.roles[k];}).join('、'):'当前规则未发现明显能力缺口。');
-            label(report,'枪位：'+r.composition.gunHeroes.length+' 人'+(r.composition.gunUnknown.length?' · 部分职责未知':''));
-            if(r.composition.missing.length)label(report,'缺少资料：'+r.composition.missing.map(engine.name).join('、'),'RAWarning');
-            r.mechanicsNotes.forEach(function(x){label(report,x,'RAMuted');});
-            label(report,'机制补位建议','RAHeading');
-            label(report,r.decisionMessage);
-            r.recommendations.forEach(function(x){label(report,engine.name(x.id)+'：'+x.reasons.slice(0,2).join('；'));});
-            label(report,'历史胜率与 Counter','RAHeading');
-            r.statisticsLines.forEach(function(x){label(report,x,'RAMuted');});
-            label(report,'对线分析','RAHeading');if(r.lane.ready)label(report,r.lane.label);r.lane.notes.slice(0,3).forEach(function(x){label(report,'• '+x);});
-            label(report,'针对装备候选','RAHeading');
-            if(!r.items.length)label(report,'选择自己的英雄后显示；不是固定购买顺序。');
-            r.items.slice(0,4).forEach(function(x){label(report,x.name+' → '+x.targets.join(' / '));label(report,x.reason+' '+x.caution,'RAMuted');});
-            r.warnings.forEach(function(x){label(report,x,'RAWarning');});
+            label(report,r.decisionMessage,'RAHeading');label(report,r.composition.summary,'RAMuted');
+            if(r.enemyPlan.length)label(report,'对局重点：'+r.enemyPlan.join('；'));
+            r.recommendations.forEach(function(x){
+                label(report,x.rank+'. '+engine.name(x.id),'RAHeading');x.reasons.slice(0,2).forEach(function(t){label(report,t);});
+                if(x.partner)label(report,'同路：'+engine.name(x.partner.ids.filter(function(id){return id!==x.id;})[0])+' · '+x.partner.reasons[0]);
+                label(report,x.plan,'RAMuted');label(report,'取舍：'+x.tradeoff,'RAMuted');
+                if(x.items.length)label(report,'针对装：'+x.items.slice(0,2).map(function(i){return i.name+' '+i.cost;}).join(' / '),'RAMuted');
+            });
+            label(report,'当前阵容 · 分路搭配','RAHeading');
+            if(r.lanePlan)r.lanePlan.pairs.forEach(function(p){label(report,p.ids.map(engine.name).join(' + '));label(report,p.reasons.join('；'),'RAMuted');});
+            label(report,'当前英雄 · 针对出装','RAHeading');
+            r.items.forEach(function(x){label(report,x.name+' · '+x.cost+' · '+x.stage);label(report,'针对 '+x.targetDetails.join(' / '),'RAMuted');label(report,x.reason+'。'+x.timing,'RAMuted');});
+            button(report,showEvidence?'收起数据与依据':'数据与依据',function(){showEvidence=!showEvidence;last='';});
+            if(showEvidence){label(report,'技能与装备 build '+r.evidence.build,'RAMuted');Object.keys(r.dimensions).forEach(function(key){label(report,r.dimensions[key]+'：'+(r.composition.gaps.indexOf(key)>=0?'优先补充':'可用'),'RAMuted');});r.statisticsLines.forEach(function(t){label(report,t,'RAMuted');});}
         }
+
         function tick(t){
             if(t!==token||!valid(root)||!valid(box))return;
             try{
