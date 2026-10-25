@@ -1,0 +1,19 @@
+Rank Advisor 0.1.0 verification
+
+Passed:
+- 14 Node.js tests: snapshot freezing/reset, eligibility filtering, incomplete data,
+  lane selection validity, item target mapping, Panorama-shaped mock lifecycle,
+  non-destructive staging and invalid-profile rejection.
+- Real downloaded QoL HUD XML: source integration succeeded; new script includes
+  precede ql_app startup, and the resulting XML parses.
+- Chromium development preview: loads without JavaScript exceptions, hero-pool
+  edit works, changing enemy selection does not overwrite the frozen snapshot,
+  resetting the match permits a new snapshot, no horizontal overflow at 1400px.
+
+Not verified:
+- Windows PowerShell wrapper execution and CSDK resource compilation.
+- Native Deadlock UI data bindings, mouse interaction, rendering and frame time.
+- Current-patch competitive recommendation accuracy.
+- Automatic ranked-unlock, Steam-account and lane detection (not implemented).
+
+The browser and mocked Panorama tests do not establish in-game functionality.
